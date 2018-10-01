@@ -15,7 +15,7 @@ Plugin 'sbdchd/neoformat'
 " https://github.com/sbdchd/neoformat
 augroup fmt
   autocmd!
-  autocmd BufWritePre *.js undojoin | Neoformat
+  autocmd BufWritePre *.js Neoformat
 augroup END
 " autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
 autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --stdin-filepath\ %
@@ -66,8 +66,20 @@ let g:airline_powerline_fonts = 1
 " let g:airline_theme='dark_minimal'
 let g:airline_theme='ayu'
 
-Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+" let g:jsx_ext_required = 0
+
+Plugin 'pangloss/vim-javascript' " breaks in certain situations with backticks
+" Plugin 'jelera/vim-javascript-syntax'
+" Plugin 'othree/yajs'
+
+" Plugin 'othree/javascript-libraries-syntax'
+" let g:used_javascript_libs = 'react'
+
+Plugin 'elzr/vim-json'
+let g:vim_json_syntax_conceal = 0
+
+" Plugin 'Raimondi/delimitMate' " adds closing delimiters
 
 " Ruby/rails stuff now ships with vim by default?
 " Plugin 'vim-ruby/vim-ruby'
@@ -232,8 +244,9 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 " make splits
-map  <C-w>s " maps <C--> to :sp<CR>
-map  <C-w>v " maps <C-\> to :vsp<CR>
+" has side effect of mapping <C-4> and <C-7>
+" map  <C-w>s " maps <C--> to :sp<CR>
+" map  <C-w>v " maps <C-\> to :vsp<CR>
 
 " explore/vexplore
 map <F2> :Explore<CR>
@@ -284,6 +297,11 @@ au BufNewFile,BufRead *.ru,*.god,*.rabl                   set ft=ruby
 " au BufNewFile,BufRead *.ini,*/.hgrc,*/.hg/hgrc            set ft=ini
 au BufNewFile,BufRead nginx*.conf,/etc/nginx/conf/*.conf  set ft=nginx
 " au BufNewFile,BufRead *.mobile.erb,*.html.erb,*.jst.ejs   set ft=eruby.html
+
+augroup setpath
+  autocmd!
+  au BufNewFile,BufRead /Users/liz/Projects/getethos/*  set path=.,/usr/include,,node_modules
+augroup END
 
 "colorscheme solarized
 "colorscheme molokai
