@@ -26,7 +26,8 @@ source $HOME/.aliases
 # avn
 # [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
-# git bash completion (from brew)
+# brew install git bash completion
+# https://stackoverflow.com/questions/14970728/homebrew-s-git-not-using-completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # git _completion_loader
