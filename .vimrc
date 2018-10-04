@@ -318,7 +318,13 @@ let ayucolor="dark"   " for dark version of theme
 colorscheme ayu
 " ayu default's LineNr:
 " LineNr         xxx ctermfg=11 guifg=#2D3640
+
+" Color overrides
 highlight LineNr guifg=#6b6b47 " yellowish grey
+highlight Comment guifg=#527077 " lighter bluegrey
+" customize directory highlight for netrw, etc
+highlight Directory guifg=#36A3D9 " ayu's tag color
+" let g:netrw_special_syntax=1
 
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 "highlight ExtraWhitespace ctermbg=red guibg=red
