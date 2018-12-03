@@ -89,11 +89,16 @@ let g:vim_json_syntax_conceal = 0
 Plugin 'tpope/vim-abolish' " https://github.com/tpope/vim-abolish
 Plugin 'tpope/vim-commentary' " Comment lines
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround' " https://github.com/tpope/vim-surround
+Plugin 'tpope/vim-surround'
+"Plugin 'tpope/vim-markdown'
+"Plugin 'gabrielelana/vim-markdown'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled = 1
 
 "Plugin 'kchmck/vim-coffee-script'
 "Plugin 'groenewege/vim-less'
-" Plugin 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim'
 "Plugin 'Lokaltog/vim-powerline'
 "Plugin 'evanmiller/nginx-vim-syntax'
 "Plugin 'matchit.zip'
@@ -225,6 +230,7 @@ set timeoutlen=500 " Timeout for double-key presses
 set clipboard=unnamed " iTerm, allow yank to go to OS clipboard
 "set t_Co=256 "http://vim.wikia.com/wiki/256_colors_in_vim
 set history=200 " Keep longer history than default
+set fileformat=unix
 
 " http://vim.wikia.com/wiki/Map_semicolon_to_colon
 noremap ; :
@@ -335,4 +341,3 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-
