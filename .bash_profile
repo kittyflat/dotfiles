@@ -38,3 +38,10 @@ __git_complete g  _git
 # __git_complete gl _git_log
 # __git_complete gp _git_push
 # __git_complete gs _git_status
+
+# Add Git branch name to terminal prompt (osx)
+# https://gist.github.com/joseluisq/1e96c54fa4e1e5647940
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
