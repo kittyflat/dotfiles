@@ -39,9 +39,20 @@ __git_complete g  _git
 # __git_complete gp _git_push
 # __git_complete gs _git_status
 
+
 # Add Git branch name to terminal prompt (osx)
 # https://gist.github.com/joseluisq/1e96c54fa4e1e5647940
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/dd/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/dd/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/dd/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/dd/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+
+# Chruby
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
