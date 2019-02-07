@@ -304,11 +304,6 @@ au BufNewFile,BufRead *.ru,*.god,*.rabl                   set ft=ruby
 au BufNewFile,BufRead nginx*.conf,/etc/nginx/conf/*.conf  set ft=nginx
 " au BufNewFile,BufRead *.mobile.erb,*.html.erb,*.jst.ejs   set ft=eruby.html
 
-augroup setpath
-  autocmd!
-  au BufNewFile,BufRead /Users/liz/Projects/getethos/*  set path=.,/usr/include,,node_modules
-augroup END
-
 "colorscheme solarized
 "colorscheme molokai
 "colorscheme gruvbox
@@ -341,3 +336,8 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
+" Enable project-specific .vimrc
+" https://andrew.stwrt.ca/posts/project-specific-vimrc/
+set exrc
+set secure
