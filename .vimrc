@@ -54,6 +54,18 @@ let g:ale_sign_error = 'x'
 " let g:ale_sign_offset = 1000000
 let g:ale_change_sign_column_color = 1
 
+" Plugin 'valloric/youcompleteme' " Completion framework
+" From https://github.com/getethos/devops/blob/master/dev/vim/.vimrc#L81
+" let g:ycm_auto_trigger = 0
+" let g:ycm_min_num_of_chars_for_completion = 4
+" let g:ycm_min_num_identifier_candidate_chars = 4
+" let g:ycm_enable_diagnostic_highlighting = 0
+" let g:javascript_plugin_jsdoc = 1
+"
+" " Disables inline preview when typing
+" set completeopt-=preview
+" let g:ycm_add_preview_to_completeopt = 0
+
 " Fancy status lines
 " https://github.com/vim-airline/vim-airline
 Plugin 'vim-airline/vim-airline'
@@ -69,6 +81,10 @@ let g:airline_theme='ayu'
 Plugin 'mxw/vim-jsx'
 " let g:jsx_ext_required = 0
 
+" To enable folding in general see:
+" https://github.com/getethos/devops/blob/master/dev/vim/.vimrc#L81
+Plugin 'Konfekt/FastFold' " Supposed to solve slow code folding
+" VERY SLOW when using code folding:
 Plugin 'pangloss/vim-javascript' " breaks in certain situations with backticks
 " Plugin 'jelera/vim-javascript-syntax'
 " Plugin 'othree/yajs'
@@ -231,6 +247,19 @@ set clipboard=unnamed " iTerm, allow yank to go to OS clipboard
 "set t_Co=256 "http://vim.wikia.com/wiki/256_colors_in_vim
 set history=200 " Keep longer history than default
 set fileformat=unix
+
+
+" Enable/Configure folding
+" From https://github.com/getethos/devops/blob/master/dev/vim/.vimrc#L81
+syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+" Code folding
+" syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+set foldenable
+set foldlevel=3
+set foldlevelstart=4
+set foldnestmax=5
+set foldmethod=syntax
+let g:javaScript_fold = 1
 
 " http://vim.wikia.com/wiki/Map_semicolon_to_colon
 noremap ; :
