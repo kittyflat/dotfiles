@@ -19,13 +19,6 @@ export CLICOLOR=1
 
 source $HOME/.aliases
 
-# nvm
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# avn
-# [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
-
 # brew install git bash completion
 # https://stackoverflow.com/questions/14970728/homebrew-s-git-not-using-completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
@@ -38,7 +31,6 @@ __git_complete g  _git
 # __git_complete gl _git_log
 # __git_complete gp _git_push
 # __git_complete gs _git_status
-
 
 # Add Git branch name to terminal prompt (osx)
 # https://gist.github.com/joseluisq/1e96c54fa4e1e5647940
@@ -72,8 +64,20 @@ if [ -f '/Users/dd/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/d
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/dd/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/dd/Downloads/google-cloud-sdk/completion.bash.inc'; fi
 
-# Chruby
+# chruby
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# avn
+# [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 eval $(thefuck --alias)
