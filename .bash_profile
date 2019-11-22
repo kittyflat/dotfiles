@@ -75,3 +75,5 @@ if [ -f '/Users/dd/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/U
 # Chruby
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
+
+eval $(thefuck --alias)
