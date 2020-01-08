@@ -167,7 +167,14 @@ Plugin 'airblade/vim-gitgutter' " Show git additions/changes/deletions in gutter
 " let g:indentLine_setColors = 0
 " }}
 
+Plugin 'leafgarland/typescript-vim' " TypeScript highlighting
+Plugin 'Quramy/tsuquyomi' " TypeScript IDE
+
+
 Plugin 'ayu-theme/ayu-vim' " or other package manager
+
+
+Plugin 'hashivim/vim-terraform'
 
 call vundle#end()
 
@@ -322,6 +329,7 @@ noremap <C-m> <C-w>>
 " au Filetype python setlocal ts=4 sts=4 sw=4
 
 au BufNewFile,BufRead *.ru,*.god,*.rabl                   set ft=ruby
+au BufNewFile,BufRead *.hcl                               set ft=terraform
 " au BufNewFile,BufRead *.eco                               set ft=eco
 " au BufNewFile,BufRead *.mako                              set ft=mako
 " au BufNewFile,BufRead *.jade                              set ft=jade
