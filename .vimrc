@@ -6,7 +6,10 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'wesQ3/vim-windowswap' " https://github.com/wesQ3/vim-windowswap
+
+" https://github.com/wesQ3/vim-windowswap
+" Enter `\ww` in one window, and repeat in another window to swap
+Plugin 'wesQ3/vim-windowswap'
 
 " For Prettier
 " https://github.com/prettier/prettier/blob/master/docs/vim.md
