@@ -65,8 +65,8 @@ if [ -f '/Users/dd/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/d
 if [ -f '/Users/dd/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/dd/Downloads/google-cloud-sdk/completion.bash.inc'; fi
 
 # chruby
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
+[ -s "/usr/local/opt/chruby/share/chruby/chruby.sh" ] && source /usr/local/opt/chruby/share/chruby/chruby.sh
+[ -s "/usr/local/share/chruby/auto.sh" ] && source /usr/local/share/chruby/auto.sh
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
