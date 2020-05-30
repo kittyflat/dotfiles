@@ -2,7 +2,7 @@ set nocompatible
 
 " Plug plugin manager https://github.com/junegunn/vim-plug
 " To install:
-" Download plug.vim and put it in the "autoload" directory.
+" Download plug.vim and put it under ~/.vim/autoload/
 " https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 " Run :PlugInstall
 call plug#begin()
@@ -82,29 +82,11 @@ let g:airline_powerline_fonts = 1
 " let g:airline_theme='dark_minimal'
 let g:airline_theme='ayu'
 
-Plug 'mxw/vim-jsx'
-" let g:jsx_ext_required = 0
-
 " To enable folding in general see:
 " https://github.com/getethos/devops/blob/master/dev/vim/.vimrc#L81
 Plug 'Konfekt/FastFold' " Supposed to solve slow code folding
-" VERY SLOW when using code folding:
-Plug 'pangloss/vim-javascript' " breaks in certain situations with backticks
-" Plug 'jelera/vim-javascript-syntax'
-" Plug 'othree/yajs'
-
-" Plug 'othree/javascript-libraries-syntax'
-" let g:used_javascript_libs = 'react'
-
-Plug 'elzr/vim-json'
-let g:vim_json_syntax_conceal = 0
 
 " Plug 'Raimondi/delimitMate' " adds closing delimiters
-
-" Ruby/rails stuff now ships with vim by default?
-" Plug 'vim-ruby/vim-ruby'
-" Plug 'tpope/vim-rails'
-" Plug 'slim-template/vim-slim'
 
 Plug 'tpope/vim-abolish' " https://github.com/tpope/vim-abolish
 Plug 'tpope/vim-commentary' " Comment lines
@@ -118,12 +100,11 @@ let g:vim_markdown_folding_disabled = 1
 
 "Plug 'kchmck/vim-coffee-script'
 "Plug 'groenewege/vim-less'
-Plug 'mileszs/ack.vim'
+"Plug 'mileszs/ack.vim'
 "Plug 'Lokaltog/vim-powerline'
 "Plug 'evanmiller/nginx-vim-syntax'
 "Plug 'matchit.zip'
 " Plug 'flazz/vim-colorschemes'
-
 
 "let g:yankring_history_dir="~"
 "let g:yankring_history_file=".yankring"
@@ -145,8 +126,10 @@ Plug 'kien/ctrlp.vim'
 " set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules/*,dist/*
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules|dist|coverage)$'
 
-" TODO consider different fuzzy finder:
-" Plug 'junegunn/fzf'
+" Fuzzy finder
+" fzf#install() makes sure that you have the latest binary
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Plug 'scrooloose/nerdtree'
 " let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.sock$']
@@ -173,15 +156,33 @@ Plug 'airblade/vim-gitgutter' " Show git additions/changes/deletions in gutter
 " let g:indentLine_setColors = 0
 " }}
 
+" Ruby/Rails stuff now ships with vim by default?
+" Plug 'vim-ruby/vim-ruby'
+" Plug 'tpope/vim-rails'
+" Plug 'slim-template/vim-slim'
+
+" JavaScript syntax
+" breaks in certain situations with backticks, not sure if it still happens
+" with maxmellon/vim-jsx-pretty
+Plug 'pangloss/vim-javascript'
+" Plug 'jelera/vim-javascript-syntax'
+" Plug 'othree/yajs'
+" Plug 'othree/javascript-libraries-syntax'
+" let g:used_javascript_libs = 'react'
+
+" JSX
+" Package is deprecated
+" Plug 'mxw/vim-jsx'
+" let g:jsx_ext_required = 0
+Plug 'maxmellon/vim-jsx-pretty'
+
+" JSON
+Plug 'elzr/vim-json'
+let g:vim_json_syntax_conceal = 0
+
+" TypeScript
 Plug 'leafgarland/typescript-vim' " TypeScript highlighting
 Plug 'ianks/vim-tsx' " TypeScript for React tsx
-
-" PLugin tsuquyomi is known to have issues with blocking
-" See https://github.com/Quramy/tsuquyomi/issues/241
-" When saving .ts file, vim would hang for >10 seconds
-" Plug 'Quramy/tsuquyomi' " TypeScript IDE
-" TODO try deoplete + nvim-typescript as described here
-" https://www.vimfromscratch.com/articles/setting-up-vim-for-typescript/
 
 " Completion
 " Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
