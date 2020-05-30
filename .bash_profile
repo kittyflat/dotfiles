@@ -14,6 +14,12 @@ export EDITOR="vim"
 export CLICOLOR=1
 # eval $(gdircolors ~/.dir_colors)
 
+# FZF Fuzzy Finder
+# Shows hidden files but ignores specific files
+# https://github.com/junegunn/fzf/issues/383
+# https://github.com/BurntSushi/ripgrep/issues/1303
+export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/**'"
+
 # Postgres $PATH
 # export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
@@ -80,4 +86,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-eval $(thefuck --alias)
+# fuck
+eval "$(thefuck --alias)"
+
+# fzf key-bindings
+# https://github.com/junegunn/fzf#key-bindings-for-command-line
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
