@@ -1,33 +1,34 @@
-" call pathogen#infect()
-
-" Vundle stuff
 set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+
+" Plug plugin manager https://github.com/junegunn/vim-plug
+" To install:
+" Download plug.vim and put it in the "autoload" directory.
+" https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" Run :PlugInstall
+call plug#begin()
 
 " https://github.com/wesQ3/vim-windowswap
 " Enter `\ww` in one window, and repeat in another window to swap
-Plugin 'wesQ3/vim-windowswap'
+Plug 'wesQ3/vim-windowswap'
 
 " For Prettier
 " https://github.com/prettier/prettier/blob/master/docs/vim.md
-Plugin 'sbdchd/neoformat'
+Plug 'sbdchd/neoformat'
 " autocmd BufWritePre *.js Neoformat
 " https://github.com/sbdchd/neoformat
 augroup fmt
   autocmd!
-  autocmd BufWritePre *.js Neoformat
+  autocmd BufWritePre *.js,*.ts Neoformat
 augroup END
 " autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
 autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --stdin-filepath\ %
+autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript\ --stdin\ --stdin-filepath\ %
 " Use formatprg when available
 let g:neoformat_try_formatprg = 1
 noremap <leader>p :Neoformat<cr>
 
 " vim-prettier doesn't return cursor to original position on splits
-" Plugin 'prettier/vim-prettier'
+" Plug 'prettier/vim-prettier'
 " let g:prettier#quickfix_enabled = 0 " disable quickfix
 " let g:prettier#autoformat = 0
 " autocmd BufWritePre *.js,*.jdb/models/TermPolicy/Helpers/manage/issue.jssx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
@@ -39,7 +40,7 @@ noremap <leader>p :Neoformat<cr>
 " disabled prettier in ale because it didn't respect .prettierignore? is it
 " possible to fix that? seems hard to pass stdin/stdin-filepath or ignore-path options
 " still using ale for eslint
-Plugin 'w0rp/ale' " Linter
+Plug 'w0rp/ale' " Linter
 let g:ale_fixers = {}
 " let g:ale_fixers['javascript'] = ['prettier']
 let g:ale_linters_explicit = 1
@@ -57,7 +58,7 @@ let g:ale_sign_error = 'x'
 " let g:ale_sign_offset = 1000000
 let g:ale_change_sign_column_color = 1
 
-" Plugin 'valloric/youcompleteme' " Completion framework
+" Plug 'valloric/youcompleteme' " Completion framework
 " From https://github.com/getethos/devops/blob/master/dev/vim/.vimrc#L81
 " let g:ycm_auto_trigger = 0
 " let g:ycm_min_num_of_chars_for_completion = 4
@@ -71,8 +72,8 @@ let g:ale_change_sign_column_color = 1
 
 " Fancy status lines
 " https://github.com/vim-airline/vim-airline
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 let g:airline_extensions = []
 let g:airline_highlighting_cache = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -81,47 +82,47 @@ let g:airline_powerline_fonts = 1
 " let g:airline_theme='dark_minimal'
 let g:airline_theme='ayu'
 
-Plugin 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx'
 " let g:jsx_ext_required = 0
 
 " To enable folding in general see:
 " https://github.com/getethos/devops/blob/master/dev/vim/.vimrc#L81
-Plugin 'Konfekt/FastFold' " Supposed to solve slow code folding
+Plug 'Konfekt/FastFold' " Supposed to solve slow code folding
 " VERY SLOW when using code folding:
-Plugin 'pangloss/vim-javascript' " breaks in certain situations with backticks
-" Plugin 'jelera/vim-javascript-syntax'
-" Plugin 'othree/yajs'
+Plug 'pangloss/vim-javascript' " breaks in certain situations with backticks
+" Plug 'jelera/vim-javascript-syntax'
+" Plug 'othree/yajs'
 
-" Plugin 'othree/javascript-libraries-syntax'
+" Plug 'othree/javascript-libraries-syntax'
 " let g:used_javascript_libs = 'react'
 
-Plugin 'elzr/vim-json'
+Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
 
-" Plugin 'Raimondi/delimitMate' " adds closing delimiters
+" Plug 'Raimondi/delimitMate' " adds closing delimiters
 
 " Ruby/rails stuff now ships with vim by default?
-" Plugin 'vim-ruby/vim-ruby'
-" Plugin 'tpope/vim-rails'
-" Plugin 'slim-template/vim-slim'
+" Plug 'vim-ruby/vim-ruby'
+" Plug 'tpope/vim-rails'
+" Plug 'slim-template/vim-slim'
 
-Plugin 'tpope/vim-abolish' " https://github.com/tpope/vim-abolish
-Plugin 'tpope/vim-commentary' " Comment lines
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-"Plugin 'tpope/vim-markdown'
-"Plugin 'gabrielelana/vim-markdown'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plug 'tpope/vim-abolish' " https://github.com/tpope/vim-abolish
+Plug 'tpope/vim-commentary' " Comment lines
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-markdown'
+"Plug 'gabrielelana/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
 
-"Plugin 'kchmck/vim-coffee-script'
-"Plugin 'groenewege/vim-less'
-Plugin 'mileszs/ack.vim'
-"Plugin 'Lokaltog/vim-powerline'
-"Plugin 'evanmiller/nginx-vim-syntax'
-"Plugin 'matchit.zip'
-" Plugin 'flazz/vim-colorschemes'
+"Plug 'kchmck/vim-coffee-script'
+"Plug 'groenewege/vim-less'
+Plug 'mileszs/ack.vim'
+"Plug 'Lokaltog/vim-powerline'
+"Plug 'evanmiller/nginx-vim-syntax'
+"Plug 'matchit.zip'
+" Plug 'flazz/vim-colorschemes'
 
 
 "let g:yankring_history_dir="~"
@@ -129,29 +130,31 @@ Plugin 'mileszs/ack.vim'
 "let g:yankring_zap_keys = 'f F t T / ?'
 "noremap <leader>y :YRShow<cr>
 
-"Plugin 'kien/ctrlp.vim'
-"" let g:ctrlp_user_command = 'find %s -type f'
-"let g:ctrlp_working_path_mode = 'rc'
-"let g:ctrlp_custom_ignore = { 'dir': '\.git$\|\.hg$\|\.svn$' }
-"noremap <leader>p :CtrlP<cr>
-
-" Plugin 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 " let g:solarized_termtrans=0
 " let g:solarized_termcolors=256
 " let g:solarized_contrast="high"
 " let g:solarized_visibility="high"
 
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
+"" let g:ctrlp_user_command = 'find %s -type f'
+"let g:ctrlp_working_path_mode = 'rc'
+"let g:ctrlp_custom_ignore = { 'dir': '\.git$\|\.hg$\|\.svn$' }
+"noremap <leader>p :CtrlP<cr>
+
 " set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules/*,dist/*
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules|dist|coverage)$'
 
-" Plugin 'scrooloose/nerdtree'
+" TODO consider different fuzzy finder:
+" Plug 'junegunn/fzf'
+
+" Plug 'scrooloose/nerdtree'
 " let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.sock$']
 " noremap <leader>n :NERDTreeToggle<cr>
 
-Plugin 'airblade/vim-gitgutter' " Show git additions/changes/deletions in gutter
+Plug 'airblade/vim-gitgutter' " Show git additions/changes/deletions in gutter
 
-"Plugin 'nathanaelkane/vim-indent-guides' " Show indent guides
+"Plug 'nathanaelkane/vim-indent-guides' " Show indent guides
 "let g:indent_guides_enable_on_vim_startup = 1
 "let g:indent_guides_start_level = 2
 "let g:indent_guides_guide_size = 3
@@ -162,7 +165,7 @@ Plugin 'airblade/vim-gitgutter' " Show git additions/changes/deletions in gutter
 "let g:indent_guides_color_change_percent = 10
 
 " https://github.com/Yggdroot/indentLine
-" Plugin 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 " " IndentLine {{
 " let g:indentLine_char = ''
 " let g:indentLine_first_char = ''
@@ -170,21 +173,47 @@ Plugin 'airblade/vim-gitgutter' " Show git additions/changes/deletions in gutter
 " let g:indentLine_setColors = 0
 " }}
 
-Plugin 'leafgarland/typescript-vim' " TypeScript highlighting
-Plugin 'Quramy/tsuquyomi' " TypeScript IDE
+Plug 'leafgarland/typescript-vim' " TypeScript highlighting
+Plug 'ianks/vim-tsx' " TypeScript for React tsx
 
+" PLugin tsuquyomi is known to have issues with blocking
+" See https://github.com/Quramy/tsuquyomi/issues/241
+" When saving .ts file, vim would hang for >10 seconds
+" Plug 'Quramy/tsuquyomi' " TypeScript IDE
+" TODO try deoplete + nvim-typescript as described here
+" https://www.vimfromscratch.com/articles/setting-up-vim-for-typescript/
 
-Plugin 'ayu-theme/ayu-vim' " or other package manager
+" Completion
+" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Otherwise complains node version 10.6.0 < 10.12.0
+" let g:coc_disable_startup_warning = 1
+" CoC extensions
+let g:coc_global_extensions = ['coc-tsserver']
 
+" " Add CoC Prettier if prettier is installed
+" if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+"   let g:coc_global_extensions += ['coc-prettier']
+" endif
+"
+" " Add CoC ESLint if ESLint is installed
+" if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+"   let g:coc_global_extensions += ['coc-eslint']
+" endif
 
-Plugin 'hashivim/vim-terraform'
+Plug 'ayu-theme/ayu-vim' " or other package manager
 
-call vundle#end()
+Plug 'hashivim/vim-terraform'
 
-syntax on             " Enable syntax highlighting
-filetype on           " Enable filetype detection
-filetype indent on    " Enable filetype-specific indenting
-filetype plugin on    " Enable filetype-specific plugins
+call plug#end()
+
+" These are added by default with `vim-plug`
+" https://github.com/junegunn/vim-plug/issues/379
+"
+" syntax on             " Enable syntax highlighting
+" filetype on           " Enable filetype detection
+" filetype indent on    " Enable filetype-specific indenting
+" filetype plugin on    " Enable filetype-specific plugins
 
 " let loaded_matchparen = 1
 " let python_highlight_all = 1
