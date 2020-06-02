@@ -1,11 +1,17 @@
 set nocompatible
 
+" Don't need filetype off/on trick with vim-plug
+" https://github.com/junegunn/vim-plug/issues/83
+" filetype off
+
 " Plug plugin manager https://github.com/junegunn/vim-plug
 " To install:
 " Download plug.vim and put it under ~/.vim/autoload/
 " https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 " Run :PlugInstall
 call plug#begin()
+
+Plug 'tpope/vim-sensible'
 
 " https://github.com/wesQ3/vim-windowswap
 " Enter `\ww` in one window, and repeat in another window to swap
@@ -117,14 +123,14 @@ let g:vim_markdown_folding_disabled = 1
 " let g:solarized_contrast="high"
 " let g:solarized_visibility="high"
 
-Plug 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
 "" let g:ctrlp_user_command = 'find %s -type f'
 "let g:ctrlp_working_path_mode = 'rc'
 "let g:ctrlp_custom_ignore = { 'dir': '\.git$\|\.hg$\|\.svn$' }
 "noremap <leader>p :CtrlP<cr>
 
 " set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules/*,dist/*
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules|dist|coverage)$'
+" let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules|dist|coverage)$'
 
 " Fuzzy finder
 " fzf#install() makes sure that you have the latest binary
@@ -193,14 +199,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-tsserver']
 
 " " Add CoC Prettier if prettier is installed
-" if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-"   let g:coc_global_extensions += ['coc-prettier']
-" endif
-"
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
 " " Add CoC ESLint if ESLint is installed
-" if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-"   let g:coc_global_extensions += ['coc-eslint']
-" endif
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
 
 Plug 'ayu-theme/ayu-vim' " or other package manager
 
@@ -287,6 +293,9 @@ set clipboard=unnamed " iTerm, allow yank to go to OS clipboard
 "set t_Co=256 "http://vim.wikia.com/wiki/256_colors_in_vim
 set history=200 " Keep longer history than default
 set fileformat=unix
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
 
 
 " Enable/Configure folding
@@ -344,6 +353,9 @@ noremap - <C-w>-
 noremap + <C-w>+
 noremap <C-n> <C-w><
 noremap <C-m> <C-w>>
+
+" Map fzf search to CTRL P
+nnoremap <C-p> :Files<Cr>
 
 " vnoremap <leader>h :!tidy -q -i<cr><cr>
 " vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left> " replace selection
