@@ -373,20 +373,8 @@ nnoremap <C-p> :Files<Cr>
 " au Filetype yaml setlocal ts=2 sts=2 sw=2
 " au Filetype python setlocal ts=4 sts=4 sw=4
 
-" Use old regexpengine for ruby
-" https://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
-au Filetype ruby setlocal re=1
-
 au BufNewFile,BufRead *.ru,*.god,*.rabl                   set ft=ruby
 au BufNewFile,BufRead *.hcl                               set ft=terraform
-" au BufNewFile,BufRead *.eco                               set ft=eco
-" au BufNewFile,BufRead *.mako                              set ft=mako
-" au BufNewFile,BufRead *.jade                              set ft=jade
-" au BufNewFile,BufRead *.less                              set ft=less
-" au BufNewFile,BufRead *.jinja                             set ft=htmljinja
-" au BufNewFile,BufRead *.coffee                            set ft=coffee
-" au BufNewFile,BufRead jquery.*.js                         set ft=javascript syntax=jquery
-" au BufNewFile,BufRead *.ini,*/.hgrc,*/.hg/hgrc            set ft=ini
 au BufNewFile,BufRead nginx*.conf,/etc/nginx/conf/*.conf  set ft=nginx
 " au BufNewFile,BufRead *.mobile.erb,*.html.erb,*.jst.ejs   set ft=eruby.html
 
