@@ -373,6 +373,10 @@ nnoremap <C-p> :Files<Cr>
 " au Filetype yaml setlocal ts=2 sts=2 sw=2
 " au Filetype python setlocal ts=4 sts=4 sw=4
 
+" Use old regexpengine for ruby
+" https://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
+au Filetype ruby setlocal re=1
+
 au BufNewFile,BufRead *.ru,*.god,*.rabl                   set ft=ruby
 au BufNewFile,BufRead *.hcl                               set ft=terraform
 " au BufNewFile,BufRead *.eco                               set ft=eco
