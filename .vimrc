@@ -212,6 +212,8 @@ Plug 'ayu-theme/ayu-vim' " or other package manager
 
 Plug 'hashivim/vim-terraform'
 
+Plug 'ntpeters/vim-better-whitespace'
+
 call plug#end()
 
 " These are added by default with `vim-plug`
@@ -400,16 +402,6 @@ highlight Comment guifg=#527077 " lighter bluegrey
 " customize directory highlight for netrw, etc
 highlight Directory guifg=#36A3D9 " ayu's tag color
 " let g:netrw_special_syntax=1
-
-" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-"highlight ExtraWhitespace ctermbg=red guibg=red
-"au Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
 
 " Enable project-specific .vimrc
 " https://andrew.stwrt.ca/posts/project-specific-vimrc/
