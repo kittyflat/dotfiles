@@ -364,6 +364,18 @@ nnoremap <C-p> :Files<Cr>
 " vnoremap > >gv
 " vnoremap < <gv
 
+" Move block of lines
+" https://dockyard.com/blog/2013/09/26/vim-moving-lines-aint-hard
+" Normal mode
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+" Insert mode
+inoremap <C-j> <ESC>:m .+1<CR>==gi
+inoremap <C-k> <ESC>:m .-2<CR>==gi
+" Visual mode
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
 " au Filetype javascript setlocal ts=2 sts=2 sw=2
 " au Filetype ruby setlocal ts=2 sts=2 sw=2
 " au Filetype haml setlocal ts=2 sts=2 sw=2 indentexpr=
