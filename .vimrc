@@ -323,7 +323,17 @@ noremap ;; ;
 " noremap <leader>m :MRU<cr>
 " noremap <leader>q :qa!<cr>
 
-" move between splits with ctrl+kjhl
+" Explore
+" Alias :E for :Explore
+" With plugin 'ntpeters/vim-better-whitespace' just E alone is ambiguous
+cnoreabbrev E Explore
+cnoreabbrev E! Explore!
+cnoreabbrev H Hexplore
+cnoreabbrev H! Hexplore!
+cnoreabbrev V Vexplore
+cnoreabbrev V! Vexplore!
+
+" Move between splits with ctrl+kjhl
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
