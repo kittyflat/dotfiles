@@ -300,21 +300,28 @@ set fileformat=unix
 set updatetime=300
 
 
-" Enable/Configure folding
-" From https://github.com/getethos/devops/blob/master/dev/vim/.vimrc#L81
-syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-" Code folding
+" " Enable/Configure folding
+" " From https://github.com/getethos/devops/blob/master/dev/vim/.vimrc#L81
 " syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-set foldenable
-set foldlevel=3
-set foldlevelstart=4
-set foldnestmax=5
-set foldmethod=syntax
-let g:javaScript_fold = 1
+" " Code folding
+" " syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+" set foldenable
+" set foldlevel=3
+" set foldlevelstart=4
+" set foldnestmax=5
+" set foldmethod=syntax
+" let g:javaScript_fold = 1
+
+" Key mappings
+" :help map-which-keys
 
 " http://vim.wikia.com/wiki/Map_semicolon_to_colon
 noremap ; :
 noremap ;; ;
+" I don't like this mapping because requires ;; for normal ;
+" Instead mapping space to ; works nicely
+" Inspiration from https://vim.fandom.com/wiki/Short_mappings_for_common_tasks
+" nnoremap <Space> :
 
 " make j,k move btwn visual lines when wrap is enabled
 " noremap j gj
@@ -339,28 +346,21 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-" make splits
-" has side effect of mapping <C-4> and <C-7>
-" map  <C-w>s " maps <C--> to :sp<CR>
-" map  <C-w>v " maps <C-\> to :vsp<CR>
+" Netrw overrides <C-l> for refresh listing. Map that to <C-r> instead
+" @see https://github.com/christoomey/vim-tmux-navigator/issues/53
 
-" explore/vexplore
-map <F2> :Explore<CR>
-map <F3> :Hexplore<CR>
-map <F4> :Vexplore!<CR>
+" augroup navigator
+"   autocmd!
+"   autocmd FileType netrw call s:reset_netrw_keys()
+" augroup END
+"
+" function s:reset_netrw_keys() abort
+"   " nmap <buffer> <silent> <c-h> <Plug>NetrwHideEdit
+"   " nmap <buffer> <silent> <c-r> <Plug>NetrwRefresh
+"   noremap <C-l> <C-w>l
+" endfunction
 
-"move between splits with alt+arrow - neither of these
-"work:
-"http://stackoverflow.com/questions/8221909/m-bindings-in-vim-on-iterm2-terminal-dont-work/8224269#8224269
-" nmap <silent> <A-Up> :wincmd k<CR>
-" nmap <silent> <A-Down> :wincmd j<CR>
-" nmap <silent> <A-Left> :wincmd h<CR>
-" nmap <silent> <A-Right> :wincmd l<CR>
-" noremap <A-Left> <C-w>h
-" noremap <A-Down> <C-w>j
-" noremap <A-Up> <C-w>k
-" noremap <A-Right> <C-w>l
-
+" Resize window
 noremap - <C-w>-
 noremap + <C-w>+
 noremap <C-n> <C-w><
@@ -374,15 +374,16 @@ nnoremap <C-p> :Files<Cr>
 " vnoremap > >gv
 " vnoremap < <gv
 
-" Move block of lines
-" https://dockyard.com/blog/2013/09/26/vim-moving-lines-aint-hard
-" Normal mode
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-" Insert mode
-inoremap <C-j> <ESC>:m .+1<CR>==gi
-inoremap <C-k> <ESC>:m .-2<CR>==gi
-" Visual mode
+" XXX This conflicts with moving between splits!
+" " Move block of lines
+" " https://dockyard.com/blog/2013/09/26/vim-moving-lines-aint-hard
+" " Normal mode
+" nnoremap <C-j> :m .+1<CR>==
+" nnoremap <C-k> :m .-2<CR>==
+" " Insert mode
+" inoremap <C-j> <ESC>:m .+1<CR>==gi
+" inoremap <C-k> <ESC>:m .-2<CR>==gi
+" " Visual mode
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
