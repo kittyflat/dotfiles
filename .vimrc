@@ -214,6 +214,7 @@ Plug 'hashivim/vim-terraform'
 
 Plug 'ntpeters/vim-better-whitespace'
 
+Plug 'keith/rspec.vim'
 call plug#end()
 
 " These are added by default with `vim-plug`
