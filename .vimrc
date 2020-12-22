@@ -24,11 +24,11 @@ Plug 'sbdchd/neoformat'
 " https://github.com/sbdchd/neoformat
 augroup fmt
   autocmd!
-  autocmd BufWritePre *.js,*.ts Neoformat
+  autocmd BufWritePre *.js,*.jsx,*.ts Neoformat
 augroup END
 " autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
-autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --stdin-filepath\ %
-autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript\ --stdin\ --stdin-filepath\ %
+autocmd FileType javascript,javascriptreact setlocal formatprg=npx\ prettier\ --stdin\ --stdin-filepath\ %
+autocmd FileType typescript,javascriptreact setlocal formatprg=npx\ prettier\ --parser\ typescript\ --stdin\ --stdin-filepath\ %
 " Use formatprg when available
 let g:neoformat_try_formatprg = 1
 noremap <leader>p :Neoformat<cr>
