@@ -196,7 +196,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Otherwise complains node version 10.6.0 < 10.12.0
 " let g:coc_disable_startup_warning = 1
 " CoC extensions
-let g:coc_global_extensions = ['coc-tsserver']
+" solargraph requires `gem install solargraph`
+let g:coc_global_extensions = ['coc-tsserver', 'coc-solargraph']
 
 " " Add CoC Prettier if prettier is installed
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
