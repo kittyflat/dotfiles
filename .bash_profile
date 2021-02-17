@@ -87,6 +87,8 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # fuck
+# https://github.com/nvbn/thefuck
+# `brew install thefuck`
 eval "$(thefuck --alias)"
 
 # fzf key-bindings
