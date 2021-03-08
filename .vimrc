@@ -136,6 +136,37 @@ let g:vim_markdown_folding_disabled = 1
 " fzf#install() makes sure that you have the latest binary
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
+
+" Don't use default popup window for fzf (this scrolls the current window a
+" lot more and results in losing the current line))
+" let g:fzf_layout = { 'down': '40%' }
+
+" Better layout for opening window from bottom
+" https://github.com/junegunn/fzf/issues/1825#issuecomment-575863230
+let g:fzf_layout = { 'window': "execute 'botright' float2nr(ceil(0.4 * &lines)) 'new'" }
+
+" Customize fzf colors to match your color scheme (This doesn't really work)
+" - fzf#wrap translates this to a set of `--color` options
+" let g:fzf_colors =
+" \ { 'fg':      ['fg', 'Normal'],
+"   \ 'bg':      ['bg', 'Normal'],
+"   \ 'hl':      ['fg', 'Comment'],
+"   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+"   \ 'hl+':     ['fg', 'Statement'],
+"   \ 'info':    ['fg', 'PreProc'],
+"   \ 'border':  ['fg', 'Ignore'],
+"   \ 'prompt':  ['fg', 'Conditional'],
+"   \ 'pointer': ['fg', 'Exception'],
+"   \ 'marker':  ['fg', 'Keyword'],
+"   \ 'spinner': ['fg', 'Label'],
+"   \ 'header':  ['fg', 'Comment'] }
+
+" Advanced fzf customizations
+" https://github.com/junegunn/fzf.vim#example-customizing-files-command
+" command! -bang -nargs=? -complete=dir Files
+"     \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview']}, <bang>0)
 
 " Plug 'scrooloose/nerdtree'
 " let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.sock$']
