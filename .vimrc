@@ -468,6 +468,7 @@ highlight Comment guifg=#527077 " lighter bluegrey
 " customize directory highlight for netrw, etc
 highlight Directory guifg=#36A3D9 " ayu's tag color
 " let g:netrw_special_syntax=1
+highlight Search guifg=wheat guibg=peru
 
 " Enable project-specific .vimrc
 " https://andrew.stwrt.ca/posts/project-specific-vimrc/
