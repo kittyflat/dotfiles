@@ -168,6 +168,14 @@ let g:fzf_layout = { 'window': "execute 'botright' float2nr(ceil(0.4 * &lines)) 
 " command! -bang -nargs=? -complete=dir Files
 "     \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview']}, <bang>0)
 
+" Fzf git grep wrapper
+" https://github.com/junegunn/fzf.vim/blob/master/README.md#example-git-grep-wrapper
+" https://github.com/junegunn/fzf.vim/issues/676#issuecomment-407964464
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number -- '.shellescape(<q-args>), 0,
+  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
 " Plug 'scrooloose/nerdtree'
 " let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.sock$']
 " noremap <leader>n :NERDTreeToggle<cr>
@@ -399,8 +407,10 @@ noremap + <C-w>+
 noremap <C-n> <C-w><
 noremap <C-m> <C-w>>
 
-" Map fzf search to CTRL P
+" Map fzf search to ctrl-p
 nnoremap <C-p> :Files<Cr>
+" Random fzf mapping for GGrep defined above
+nnoremap <C-k> :GGrep<Cr>
 
 " vnoremap <leader>h :!tidy -q -i<cr><cr>
 " vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left> " replace selection
