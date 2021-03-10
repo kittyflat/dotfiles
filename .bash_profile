@@ -1,3 +1,4 @@
+export TERM=xterm-256color
 export EDITOR=vim
 # export PATH=/usr/local/bin:$PATH
 # export PATH="/usr/local/opt/curl/bin:$PATH"
