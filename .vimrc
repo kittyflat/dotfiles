@@ -12,6 +12,19 @@ set nocompatible
 call plug#begin()
 
 Plug 'tpope/vim-sensible'
+" Minimal informative tablines
+" Plug 'lukelbd/vim-tabline'
+" Plug 'mkitt/tabline.vim'
+
+
+" Plug 'webdevel/tabulous'
+" let tabulousCloseStr = ''
+" " Don't remove path and type
+" " The defaults are :t:r which remove directories and file extension from a tab label name.
+" let tabulousLabelNameOptions = ':t'
+" let tabulousLabelLeftStr = ' '
+" " Map C-t to rename tab
+" noremap <C-t> :call g:tabulous#renameTab()<cr>
 
 " https://github.com/wesQ3/vim-windowswap
 " Enter `\ww` in one window, and repeat in another window to swap
@@ -76,17 +89,17 @@ let g:ale_change_sign_column_color = 1
 " set completeopt-=preview
 " let g:ycm_add_preview_to_completeopt = 0
 
-" Fancy status lines
-" https://github.com/vim-airline/vim-airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-let g:airline_extensions = []
-let g:airline_highlighting_cache = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline_powerline_fonts = 1
-" let g:airline_theme='dark_minimal'
-let g:airline_theme='ayu'
+" " Fancy status lines
+" " https://github.com/vim-airline/vim-airline
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" let g:airline_extensions = []
+" let g:airline_highlighting_cache = 1
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" let g:airline_powerline_fonts = 1
+" " let g:airline_theme='dark_minimal'
+" let g:airline_theme='ayu'
 
 " To enable folding in general see:
 " https://github.com/getethos/devops/blob/master/dev/vim/.vimrc#L81
@@ -100,9 +113,58 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-markdown'
 "Plug 'gabrielelana/vim-markdown'
-Plug 'godlygeek/tabular'
+" Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
+
+" Minimal status line
+Plug 'itchyny/lightline.vim'
+" -- INSERT -- is unnecessary anymore because the mode information is displayed
+" in the statusline.
+set noshowmode
+let g:lightline = {
+      \   'colorscheme': 'ayu_mirage',
+      \ }
+      " \   'active': {
+      " \     'left': [ ['mode', 'paste'], ['readonly', 'filename', 'modified'] ]
+      " \   },
+      " \   'inactive': {
+      " \     'left': [ ['relativepath'] ],
+      " \     'right': [ ['lineinfo'], ['percent'] ]
+      " \   },
+      " \   'component_function': {
+      " \     'gitbranch': 'FugitiveHead',
+	    " \     'fileformat': 'LightlineFileformat',
+      " \   },
+      " \ }
+
+let g:lightline.active = {
+    \ 'left': [ [ 'mode', 'paste' ],
+    \           [ 'readonly', 'relativepath', 'modified' ] ],
+    \ 'right': [ [ 'lineinfo' ], [ 'percent' ] ] }
+    " \            [ 'fileformat', 'fileencoding', 'filetype' ] ] }
+let g:lightline.inactive = {
+    \ 'left': [ [ 'relativepath' ] ],
+    \ 'right': [ [ 'lineinfo' ],
+    \            [ 'percent' ] ] }
+
+let g:lightline.component_function = { 'gitbranch': 'FugitiveHead' }
+" \ 'fileformat': 'LightlineFileformat' },
+" function! LightlineFileformat()
+"   return winwidth(0) > 70 ? &fileformat : ''
+" endfunction
+
+let g:lightline.tabline = {
+      \ 'left': [ [ 'tabs' ] ],
+      \ 'right': [ [ 'gitbranch' ],
+      \            [ 'fileformat', 'fileencoding', 'filetype' ] ] }
+let g:lightline.tab = {
+      \ 'active': [ 'tabnum', 'filename', 'modified' ],
+      \ 'inactive': [ 'tabnum', 'filename', 'modified' ] }
+
+function! LightlineFilename()
+  return winwidth(0) > 70 ? &filename : &relativepath
+endfunction
 
 "Plug 'kchmck/vim-coffee-script'
 "Plug 'groenewege/vim-less'
@@ -175,6 +237,12 @@ command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number -- '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
+" https://github.com/junegunn/fzf.vim#example-rg-command-with-preview-window
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
 
 " Plug 'scrooloose/nerdtree'
 " let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.sock$']
@@ -253,6 +321,7 @@ Plug 'ayu-theme/ayu-vim' " or other package manager
 Plug 'hashivim/vim-terraform'
 
 Plug 'ntpeters/vim-better-whitespace'
+let g:better_whitespace_guicolor='#c63f4f'
 
 Plug 'keith/rspec.vim'
 call plug#end()
@@ -300,7 +369,8 @@ set softtabstop=2
 set expandtab
 " set nowrap
 set number "display line numbers
-set colorcolumn=81
+" http://joshorourke.com/2012/06/29/vim-tip-how-to-use-vertical-guides
+set colorcolumn=80
 set swapfile
 set dir=~/.vim/tmp/swap
 set backup
@@ -355,6 +425,7 @@ set updatetime=300
 
 " Key mappings
 " :help map-which-keys
+" Unused keys: https://vim.fandom.com/wiki/Unused_keys
 
 " http://vim.wikia.com/wiki/Map_semicolon_to_colon
 noremap ; :
@@ -409,8 +480,17 @@ noremap <C-m> <C-w>>
 
 " Map fzf search to ctrl-p
 nnoremap <C-p> :Files<Cr>
-" Random fzf mapping for GGrep defined above
-nnoremap <C-k> :GGrep<Cr>
+" Map Fzf GGrep to ctrl-f
+" (Overwrites PageDown but there is Shift-Down/Up and Ctrl-D/U anyway)
+nnoremap <C-f> :GGrep<Cr>
+nnoremap <leader>f :Rg<Cr>
+" unmap <C-g>
+
+" Eh?
+" map <up> <nop>
+" map <down> <nop>
+" map <left> <nop>
+" map <right> <nop>
 
 " vnoremap <leader>h :!tidy -q -i<cr><cr>
 " vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left> " replace selection
@@ -456,19 +536,39 @@ au BufNewFile,BufRead nginx*.conf,/etc/nginx/conf/*.conf  set ft=nginx
 " ayu-theme/ayu-vim
 set termguicolors     " enable true colors support
 " let ayucolor="light"  " for light version of theme
-" let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
+let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
 colorscheme ayu
 " ayu default's LineNr:
 " LineNr         xxx ctermfg=11 guifg=#2D3640
 
 " Color overrides
+highlight Normal guibg=#0c1014 " ayu dark bg
 highlight LineNr guifg=#6b6b47 " yellowish grey
 highlight Comment guifg=#527077 " lighter bluegrey
 " customize directory highlight for netrw, etc
 highlight Directory guifg=#36A3D9 " ayu's tag color
 " let g:netrw_special_syntax=1
-highlight Search guifg=wheat guibg=peru
+" highlight Search guifg=wheat guibg=peru
+highlight Search guifg=wheat guibg=#6e2c71
+highlight CursorLine guibg=#060060 " darkblue
+highlight CursorColumn guibg=#060060 " darkblue
+highlight ColorColumn guibg=#060060
+" These get overridden by lightline
+" hi StatusLine guifg=#E7E1CF guibg=#14191F
+" highlight StatusLine guifg=wheat guibg=peru
+
+" Tabline color theme from https://github.com/mkitt/tabline.vim
+" hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
+" hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
+" hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+
+" Highlight current line and column
+set cursorline
+set cursorcolumn
+" hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+" hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+" nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
 " Enable project-specific .vimrc
 " https://andrew.stwrt.ca/posts/project-specific-vimrc/
@@ -482,3 +582,41 @@ set secure
 "   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "   set termguicolors
 " endif
+
+
+" Set tablines (using https://github.com/lukelbd/vim-tabline)
+" :help setting-tablines
+" set tabline=%!MyTabLine()
+" function MyTabLine()
+"   let s = ''
+"   for i in range(tabpagenr('$'))
+"     " select the highlighting
+"     if i + 1 == tabpagenr()
+"       let s .= '%#TabLineSel#'
+"     else
+"       let s .= '%#TabLine#'
+"     endif
+
+"     " set the tab page number (for mouse clicks)
+"     let s .= '%' . (i + 1) . 'T'
+
+"     " the label is made by MyTabLabel()
+"     let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+"   endfor
+
+"   " after the last tab fill with TabLineFill and reset tab page nr
+"   let s .= '%#TabLineFill#%T'
+
+"   " right-align the label to close the current tab page
+"   if tabpagenr('$') > 1
+"     let s .= '%=%#TabLine#%999Xclose'
+"   endif
+
+"   return s
+" endfunction
+
+" function MyTabLabel(n)
+"   let buflist = tabpagebuflist(a:n)
+"   let winnr = tabpagewinnr(a:n)
+"   return bufname(buflist[winnr - 1])
+" endfunction
