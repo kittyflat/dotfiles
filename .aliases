@@ -1,0 +1,8 @@
+alias v="vim"
+alias vf='vim $(fzf)'
+alias g="git"
+alias gg="git grep"
+
+alias dotfiles="cd ~/Projects/dotfiles"
+
+[ -f ~/.aliases.local ] && source ~/.aliases.local
