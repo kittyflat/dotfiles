@@ -553,7 +553,7 @@ highlight Directory guifg=#36A3D9 " ayu's tag color
 highlight Search guifg=wheat guibg=#6e2c71
 highlight CursorLine guibg=#060060 " darkblue
 highlight CursorColumn guibg=#060060 " darkblue
-highlight ColorColumn guibg=#060060
+highlight ColorColumn guibg=#320040 " darkpurp
 " These get overridden by lightline
 " hi StatusLine guifg=#E7E1CF guibg=#14191F
 " highlight StatusLine guifg=wheat guibg=peru

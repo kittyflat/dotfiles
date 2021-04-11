@@ -98,8 +98,11 @@ scrolling:
   # Specifying '0' will disable scrolling.
   history: 100000
 
+  # Disable mouse wheel
+  # https://github.com/alacritty/alacritty/issues/2300#issuecomment-482250706
+  #
   # Scrolling distance multiplier.
-  #multiplier: 3
+  multiplier: 0
 
 # Font configuration
 font:
@@ -111,7 +114,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Menlo for Powerline
+    family: Menlo
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -122,7 +125,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Menlo for Powerline
+    family: Menlo
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -133,7 +136,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Menlo for Powerline
+    family: Menlo
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -144,7 +147,7 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Menlo for Powerline
+    family: Menlo
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
@@ -862,6 +865,18 @@ key_bindings:
   #- { key: F,              mods: Command|Control,            action: ToggleFullscreen }
   #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward    }
   #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward   }
+
+  # Get Alt-F/B to send Alt-Right/Left
+  # Combined with zsh bindkey for forward/backward-word movement
+  # https://github.com/alacritty/alacritty/issues/93#issuecomment-543525316
+  # https://godoc.org/github.com/tiborvass/uniline/ansi#Code
+  # https://github.com/jwilm/alacritty/issues/93#issuecomment-334790547
+  - { key: F,  mods: Alt,           chars: "\x1bf"                       }
+  - { key: B,  mods: Alt,           chars: "\x1bb"                       }
+
+  # Get Alt-D to do forward-delete
+  # https://github.com/jwilm/alacritty/issues/93#issuecomment-427592040
+  - { key: D,  mods: Alt,           chars: "\x1bd"                       }
 
 #debug:
   # Display the time it takes to redraw each frame.
