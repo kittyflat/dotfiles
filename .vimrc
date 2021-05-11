@@ -12,94 +12,10 @@ set nocompatible
 call plug#begin()
 
 Plug 'tpope/vim-sensible'
-" Minimal informative tablines
-" Plug 'lukelbd/vim-tabline'
-" Plug 'mkitt/tabline.vim'
-
-
-" Plug 'webdevel/tabulous'
-" let tabulousCloseStr = ''
-" " Don't remove path and type
-" " The defaults are :t:r which remove directories and file extension from a tab label name.
-" let tabulousLabelNameOptions = ':t'
-" let tabulousLabelLeftStr = ' '
-" " Map C-t to rename tab
-" noremap <C-t> :call g:tabulous#renameTab()<cr>
 
 " https://github.com/wesQ3/vim-windowswap
 " Enter `\ww` in one window, and repeat in another window to swap
 Plug 'wesQ3/vim-windowswap'
-
-" For Prettier
-" https://github.com/prettier/prettier/blob/master/docs/vim.md
-Plug 'sbdchd/neoformat'
-" autocmd BufWritePre *.js Neoformat
-" https://github.com/sbdchd/neoformat
-augroup fmt
-  autocmd!
-  autocmd BufWritePre *.js,*.jsx,*.ts Neoformat
-augroup END
-" autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
-autocmd FileType javascript,javascriptreact setlocal formatprg=npx\ prettier\ --stdin\ --stdin-filepath\ %
-autocmd FileType typescript,javascriptreact setlocal formatprg=npx\ prettier\ --parser\ typescript\ --stdin\ --stdin-filepath\ %
-" Use formatprg when available
-let g:neoformat_try_formatprg = 1
-noremap <leader>p :Neoformat<cr>
-
-" vim-prettier doesn't return cursor to original position on splits
-" Plug 'prettier/vim-prettier'
-" let g:prettier#quickfix_enabled = 0 " disable quickfix
-" let g:prettier#autoformat = 0
-" autocmd BufWritePre *.js,*.jdb/models/TermPolicy/Helpers/manage/issue.jssx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
-
-" home-made prettier mapping, difficulty returning cursor/scroll
-" noremap <leader>p ma :%!prettier --stdin --stdin-filepath %<cr> `a
-" " autocmd BufWritePre *.js ma :%!prettier --stdin-filepath % `a
-
-" disabled prettier in ale because it didn't respect .prettierignore? is it
-" possible to fix that? seems hard to pass stdin/stdin-filepath or ignore-path options
-" still using ale for eslint
-Plug 'w0rp/ale' " Linter
-let g:ale_fixers = {}
-" let g:ale_fixers['javascript'] = ['prettier']
-let g:ale_linters_explicit = 1
-let g:ale_linters = {}
-let g:ale_linters['javascript'] = ['eslint']
-" let g:ale_javascript_prettier_use_local_config = 1
-" let g:ale_javascript_prettier_options = ' --no-semi --single-quote --trailing-comma es5'
-let g:ale_lint_delay = 500
-let g:ale_lint_on_insert_leave = 1
-let g:ale_lint_on_text_changed = 'always'
-" let g:ale_fix_on_save = 1
-let g:ale_set_signs = 1
-let g:ale_sign_warning = '!'
-let g:ale_sign_error = 'x'
-" let g:ale_sign_offset = 1000000
-let g:ale_change_sign_column_color = 1
-
-" Plug 'valloric/youcompleteme' " Completion framework
-" From https://github.com/getethos/devops/blob/master/dev/vim/.vimrc#L81
-" let g:ycm_auto_trigger = 0
-" let g:ycm_min_num_of_chars_for_completion = 4
-" let g:ycm_min_num_identifier_candidate_chars = 4
-" let g:ycm_enable_diagnostic_highlighting = 0
-" let g:javascript_plugin_jsdoc = 1
-"
-" " Disables inline preview when typing
-" set completeopt-=preview
-" let g:ycm_add_preview_to_completeopt = 0
-
-" " Fancy status lines
-" " https://github.com/vim-airline/vim-airline
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-" let g:airline_extensions = []
-" let g:airline_highlighting_cache = 1
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-" let g:airline_powerline_fonts = 1
-" " let g:airline_theme='dark_minimal'
-" let g:airline_theme='ayu'
 
 " To enable folding in general see:
 " https://github.com/getethos/devops/blob/master/dev/vim/.vimrc#L81
