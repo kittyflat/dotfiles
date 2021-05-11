@@ -82,34 +82,6 @@ function! LightlineFilename()
   return winwidth(0) > 70 ? &filename : &relativepath
 endfunction
 
-"Plug 'kchmck/vim-coffee-script'
-"Plug 'groenewege/vim-less'
-"Plug 'mileszs/ack.vim'
-"Plug 'Lokaltog/vim-powerline'
-"Plug 'evanmiller/nginx-vim-syntax'
-"Plug 'matchit.zip'
-" Plug 'flazz/vim-colorschemes'
-
-"let g:yankring_history_dir="~"
-"let g:yankring_history_file=".yankring"
-"let g:yankring_zap_keys = 'f F t T / ?'
-"noremap <leader>y :YRShow<cr>
-
-" Plug 'altercation/vim-colors-solarized'
-" let g:solarized_termtrans=0
-" let g:solarized_termcolors=256
-" let g:solarized_contrast="high"
-" let g:solarized_visibility="high"
-
-" Plug 'kien/ctrlp.vim'
-"" let g:ctrlp_user_command = 'find %s -type f'
-"let g:ctrlp_working_path_mode = 'rc'
-"let g:ctrlp_custom_ignore = { 'dir': '\.git$\|\.hg$\|\.svn$' }
-"noremap <leader>p :CtrlP<cr>
-
-" set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules/*,dist/*
-" let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules|dist|coverage)$'
-
 " Fuzzy finder
 " fzf#install() makes sure that you have the latest binary
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -123,23 +95,6 @@ Plug 'junegunn/fzf.vim'
 " Better layout for opening window from bottom
 " https://github.com/junegunn/fzf/issues/1825#issuecomment-575863230
 let g:fzf_layout = { 'window': "execute 'botright' float2nr(ceil(0.4 * &lines)) 'new'" }
-
-" Customize fzf colors to match your color scheme (This doesn't really work)
-" - fzf#wrap translates this to a set of `--color` options
-" let g:fzf_colors =
-" \ { 'fg':      ['fg', 'Normal'],
-"   \ 'bg':      ['bg', 'Normal'],
-"   \ 'hl':      ['fg', 'Comment'],
-"   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-"   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-"   \ 'hl+':     ['fg', 'Statement'],
-"   \ 'info':    ['fg', 'PreProc'],
-"   \ 'border':  ['fg', 'Ignore'],
-"   \ 'prompt':  ['fg', 'Conditional'],
-"   \ 'pointer': ['fg', 'Exception'],
-"   \ 'marker':  ['fg', 'Keyword'],
-"   \ 'spinner': ['fg', 'Label'],
-"   \ 'header':  ['fg', 'Comment'] }
 
 " Advanced fzf customizations
 " https://github.com/junegunn/fzf.vim#example-customizing-files-command
@@ -160,44 +115,10 @@ command! -bang -nargs=* Rg
   \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
-" Plug 'scrooloose/nerdtree'
-" let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.sock$']
-" noremap <leader>n :NERDTreeToggle<cr>
-
 Plug 'airblade/vim-gitgutter' " Show git additions/changes/deletions in gutter
 
-"Plug 'nathanaelkane/vim-indent-guides' " Show indent guides
-"let g:indent_guides_enable_on_vim_startup = 1
-"let g:indent_guides_start_level = 2
-"let g:indent_guides_guide_size = 3
-"hi IndentGuidesOdd  ctermbg=black
-"hi IndentGuidesEven ctermbg=darkgrey
-"" hi IndentGuidesOdd  guibg=red   ctermbg=3
-"" hi IndentGuidesEven guibg=green ctermbg=4
-"let g:indent_guides_color_change_percent = 10
-
-" https://github.com/Yggdroot/indentLine
-" Plug 'Yggdroot/indentLine'
-" " IndentLine {{
-" let g:indentLine_char = ''
-" let g:indentLine_first_char = ''
-" let g:indentLine_showFirstIndentLevel = 1
-" let g:indentLine_setColors = 0
-" }}
-
-" Ruby/Rails stuff now ships with vim by default?
-" Plug 'vim-ruby/vim-ruby'
-" Plug 'tpope/vim-rails'
-" Plug 'slim-template/vim-slim'
-
 " JavaScript syntax
-" breaks in certain situations with backticks, not sure if it still happens
-" with maxmellon/vim-jsx-pretty
 Plug 'pangloss/vim-javascript'
-" Plug 'jelera/vim-javascript-syntax'
-" Plug 'othree/yajs'
-" Plug 'othree/javascript-libraries-syntax'
-" let g:used_javascript_libs = 'react'
 
 " JSX
 " Package is deprecated
@@ -508,41 +429,3 @@ set secure
 "   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "   set termguicolors
 " endif
-
-
-" Set tablines (using https://github.com/lukelbd/vim-tabline)
-" :help setting-tablines
-" set tabline=%!MyTabLine()
-" function MyTabLine()
-"   let s = ''
-"   for i in range(tabpagenr('$'))
-"     " select the highlighting
-"     if i + 1 == tabpagenr()
-"       let s .= '%#TabLineSel#'
-"     else
-"       let s .= '%#TabLine#'
-"     endif
-
-"     " set the tab page number (for mouse clicks)
-"     let s .= '%' . (i + 1) . 'T'
-
-"     " the label is made by MyTabLabel()
-"     let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
-"   endfor
-
-"   " after the last tab fill with TabLineFill and reset tab page nr
-"   let s .= '%#TabLineFill#%T'
-
-"   " right-align the label to close the current tab page
-"   if tabpagenr('$') > 1
-"     let s .= '%=%#TabLine#%999Xclose'
-"   endif
-
-"   return s
-" endfunction
-
-" function MyTabLabel(n)
-"   let buflist = tabpagebuflist(a:n)
-"   let winnr = tabpagewinnr(a:n)
-"   return bufname(buflist[winnr - 1])
-" endfunction
