@@ -321,6 +321,11 @@ if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
   let g:coc_global_extensions += ['coc-eslint']
 endif
 
+" Press ESC twice to close COC tips (they sometimes get stuck on the screen)
+" https://www.reddit.com/r/vim/comments/jzjbdd/coc_auto_suggestions_are_stuck_on_the_screen/gdflzy0?utm_source=share&utm_medium=web2x&context=3
+" nnoremap <silent> <ESC><ESC> :nohlsearch \| match none \| 2match none \| call coc#float#close_all()<CR>
+nnoremap <silent> <ESC><ESC> :call coc#float#close_all()<CR>
+
 Plug 'ayu-theme/ayu-vim' " or other package manager
 
 Plug 'hashivim/vim-terraform'
