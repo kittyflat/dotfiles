@@ -371,6 +371,7 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 au BufNewFile,BufRead *.ru,*.god,*.rabl                   set ft=ruby
 au BufNewFile,BufRead *.hcl                               set ft=terraform
 au BufNewFile,BufRead nginx*.conf,/etc/nginx/conf/*.conf  set ft=nginx
+au BufNewFile,BufRead *.tsx                               set filetype=typescriptreact
 " au BufNewFile,BufRead *.mobile.erb,*.html.erb,*.jst.ejs   set ft=eruby.html
 
 "colorscheme solarized
