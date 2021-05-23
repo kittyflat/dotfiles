@@ -1,3 +1,10 @@
+# Enable Ctrl-S for forward-i-search in bash/zsh
+# Ctrl-R already does bck-i-search
+# https://stackoverflow.com/questions/12373586/how-to-reverse-i-search-back-and-forth
+# https://superuser.com/questions/472846/how-to-reverse-i-search-back-and-forth
+# https://unix.stackexchange.com/questions/73498/how-to-cycle-through-reverse-i-search-in-bash
+stty -ixon
+
 export TERM=xterm-256color
 export EDITOR=vim
 # export PATH=/usr/local/bin:$PATH
