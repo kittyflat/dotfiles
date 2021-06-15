@@ -5,6 +5,61 @@
     "typescript",
     "typescriptreact",
     "css",
-    "markdown"
-  ]
+    "markdown",
+    "ruby"
+  ],
+  "diagnostic-languageserver.linters": {
+    "rubocop-linter": {
+      "command": "bundle",
+      "sourceName": "rubocop",
+      "debounce": 100,
+      "args": [
+        "exec",
+        "rubocop",
+        "--format",
+        "json",
+        "--stdin",
+        "%filepath"
+      ],
+      "parseJson": {
+        "errorsRoot": "files[0].offenses",
+        "line": "location.start_line",
+        "endLine": "location.last_line",
+        "column": "location.start_column",
+        "endColumn": "location.end_column",
+        "message": "[${cop_name}] ${message}",
+        "security": "severity"
+      },
+      "securities": {
+        "fatal": "error",
+        "error": "error",
+        "warning": "warning",
+        "convention": "info",
+        "refactor": "info",
+        "info": "info"
+      }
+    }
+  },
+  "diagnostic-languageserver.filetypes": {
+    "ruby": "rubocop-linter"
+  },
+  "diagnostic-languageserver.formatters": {
+    "rubocop-formatter": {
+      "command": "bundle",
+      "args": [
+        "exec",
+        "rubocop",
+        "--auto-correct",
+        "--stderr",
+        "--stdin",
+        "%filepath"
+      ],
+      "rootPatterns": ["Gemfile"],
+      "requiredFiles": [".rubocop.yml"]
+    }
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "ruby": "rubocop-formatter"
+  },
+  "coc.preferences.willSaveHandlerTimeout": 5000
 }

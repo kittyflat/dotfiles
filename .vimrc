@@ -139,9 +139,9 @@ Plug 'ianks/vim-tsx' " TypeScript for React tsx
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Otherwise complains node version 10.6.0 < 10.12.0
 " let g:coc_disable_startup_warning = 1
+"
 " CoC extensions
-" solargraph requires `gem install solargraph`
-let g:coc_global_extensions = ['coc-tsserver', 'coc-solargraph']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-diagnostic']
 
 " " Add CoC Prettier if prettier is installed
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
