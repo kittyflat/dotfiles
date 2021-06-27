@@ -5,8 +5,7 @@
     "typescript",
     "typescriptreact",
     "css",
-    "markdown",
-    "ruby"
+    "markdown"
   ],
   "diagnostic-languageserver.linters": {
     "rubocop-linter": {
@@ -42,24 +41,5 @@
   },
   "diagnostic-languageserver.filetypes": {
     "ruby": "rubocop-linter"
-  },
-  "diagnostic-languageserver.formatters": {
-    "rubocop-formatter": {
-      "command": "bundle",
-      "args": [
-        "exec",
-        "rubocop",
-        "--auto-correct",
-        "--stderr",
-        "--stdin",
-        "%filepath"
-      ],
-      "rootPatterns": ["Gemfile"],
-      "requiredFiles": [".rubocop.yml"]
-    }
-  },
-  "diagnostic-languageserver.formatFiletypes": {
-    "ruby": "rubocop-formatter"
-  },
-  "coc.preferences.willSaveHandlerTimeout": 5000
+  }
 }
