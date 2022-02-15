@@ -371,11 +371,10 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " au Filetype yaml setlocal ts=2 sts=2 sw=2
 " au Filetype python setlocal ts=4 sts=4 sw=4
 
-au BufNewFile,BufRead *.ru,*.god,*.rabl                   set ft=ruby
+au BufNewFile,BufRead *.ru,*.god,*.rabl,*.arb             set ft=ruby
 au BufNewFile,BufRead *.hcl                               set ft=terraform
 au BufNewFile,BufRead nginx*.conf,/etc/nginx/conf/*.conf  set ft=nginx
 au BufNewFile,BufRead *.tsx                               set filetype=typescriptreact
-" au BufNewFile,BufRead *.mobile.erb,*.html.erb,*.jst.ejs   set ft=eruby.html
 
 "colorscheme solarized
 "colorscheme molokai
