@@ -60,7 +60,7 @@ let g:lightline.active = {
     \ 'right': [ [ 'lineinfo' ], [ 'percent' ] ] }
     " \            [ 'fileformat', 'fileencoding', 'filetype' ] ] }
 let g:lightline.inactive = {
-    \ 'left': [ [ 'relativepath' ] ],
+    \ 'left': [ [ 'relativepath', 'modified' ] ],
     \ 'right': [ [ 'lineinfo' ],
     \            [ 'percent' ] ] }
 
