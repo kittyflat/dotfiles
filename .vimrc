@@ -232,7 +232,10 @@ set mouse=
 set backspace=2
 set laststatus=2
 set ruler
-set gdefault
+" Using :set gdefault creates confusion because then %s/// is global,
+" whereas %s///g is not (that is, g reverses its meaning).
+" https://vim.fandom.com/wiki/Search_and_replace
+" set gdefault
 set noerrorbells
 set t_vb=
 set vb
