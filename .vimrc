@@ -302,6 +302,11 @@ cnoreabbrev H! Hexplore!
 cnoreabbrev V Vexplore
 cnoreabbrev V! Vexplore!
 
+" Alias common fugitive commands
+cnoreabbrev Gb Git<space>blame
+cnoreabbrev Gbl Git<space>blame
+cnoreabbrev Gbla Git<space>blame
+
 " Move between splits with ctrl+kjhl
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
