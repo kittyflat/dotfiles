@@ -878,6 +878,14 @@ key_bindings:
   # https://github.com/jwilm/alacritty/issues/93#issuecomment-427592040
   - { key: D,  mods: Alt,           chars: "\x1bd"                       }
 
+  # Get Ctrl-Shift-H/J/K/L to send appropriate sequence
+  # Used in .tmux.conf
+  # https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
+  - { key: H,  mods: Control|Shift, chars: "\x1b[72;5u"                  }
+  - { key: J,  mods: Control|Shift, chars: "\x1b[74;5u"                  }
+  - { key: K,  mods: Control|Shift, chars: "\x1b[75;5u"                  }
+  - { key: L,  mods: Control|Shift, chars: "\x1b[76;5u"                  }
+
 #debug:
   # Display the time it takes to redraw each frame.
   #render_timer: false
