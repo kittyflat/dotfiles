@@ -9,6 +9,27 @@ bindkey -e
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 
+# Ignore ctrl-d
+# https://zsh.sourceforge.io/Doc/Release/Options.html
+# https://superuser.com/a/1309966
+setopt ignore_eof
+
+# Prompt
+# https://www.themoderncoder.com/add-git-branch-information-to-your-zsh-prompt/
+#
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats '%b'
+
+# Set up the prompt (with git branch name)
+setopt PROMPT_SUBST
+# https://unix.stackexchange.com/questions/273529/shorten-path-in-zsh-prompt
+PROMPT='[%D{%y/%m/%f} %D{%L:%M:%S}] %n@%m %(3~|%2~|%~) $ '
+RPROMPT=\$vcs_info_msg_0_
+
 # Make fg work like in bash (without requiring %)
 # https://stackoverflow.com/questions/32614648/weird-jobs-behavior-within-zsh
 fg() {
@@ -22,3 +43,6 @@ fg() {
 source ~/.bash_profile
 
 export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
+
+# Load local config if exists
+[[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
