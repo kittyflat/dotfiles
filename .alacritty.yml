@@ -895,10 +895,17 @@ key_bindings:
   # Get Ctrl-Shift-H/J/K/L to send appropriate sequence
   # Used in .tmux.conf
   # https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
-  - { key: H,  mods: Control|Shift, chars: "\x1b[72;5u"                  }
-  - { key: J,  mods: Control|Shift, chars: "\x1b[74;5u"                  }
-  - { key: K,  mods: Control|Shift, chars: "\x1b[75;5u"                  }
-  - { key: L,  mods: Control|Shift, chars: "\x1b[76;5u"                  }
+  # - { key: H,  mods: Control|Shift, chars: "\x1b[72;5u"                  }
+  # - { key: J,  mods: Control|Shift, chars: "\x1b[74;5u"                  }
+  # - { key: K,  mods: Control|Shift, chars: "\x1b[75;5u"                  }
+  # - { key: L,  mods: Control|Shift, chars: "\x1b[76;5u"                  }
+  #
+  # This actually accomplishes the same, is less hacky/brittle, and doesn't require an additional tmux
+  # config in order to work. Inspired by https://github.com/alacritty/alacritty/issues/820#issuecomment-651385928
+  - { key: H,  mods: Control|Shift,  command: { program: "/usr/local/bin/tmux", args: ["select-pane", "-L"] } }
+  - { key: J,  mods: Control|Shift,  command: { program: "/usr/local/bin/tmux", args: ["select-pane", "-D"] } }
+  - { key: K,  mods: Control|Shift,  command: { program: "/usr/local/bin/tmux", args: ["select-pane", "-U"] } }
+  - { key: L,  mods: Control|Shift,  command: { program: "/usr/local/bin/tmux", args: ["select-pane", "-R"] } }
 
 #debug:
   # Display the time it takes to redraw each frame.
