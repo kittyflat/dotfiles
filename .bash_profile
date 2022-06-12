@@ -35,10 +35,10 @@ source $HOME/.aliases
 
 # brew install git bash completion
 # https://stackoverflow.com/questions/14970728/homebrew-s-git-not-using-completion
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+# [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # git _completion_loader
-__git_complete g  _git
+# __git_complete g  _git
 # __git_complete gb _git_branch
 # __git_complete gc _git_checkout
 # __git_complete gd _git_diff
@@ -48,35 +48,35 @@ __git_complete g  _git
 
 # Add Git branch name to terminal prompt (osx)
 # https://gist.github.com/joseluisq/1e96c54fa4e1e5647940
-parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
-}
+# parse_git_branch() {
+#   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+# }
 
-parse_git_handle() {
-  git remote get-url origin 2> /dev/null | sed -e 's/.*:\(.*\)\/.*\.git/\1/'
-}
+# parse_git_handle() {
+#   git remote get-url origin 2> /dev/null | sed -e 's/.*:\(.*\)\/.*\.git/\1/'
+# }
 
-parse_git_repo() {
-  git remote get-url origin 2> /dev/null | sed -e 's/.*:.*\/\(.*\)\.git/\1/'
-}
+# parse_git_repo() {
+#   git remote get-url origin 2> /dev/null | sed -e 's/.*:.*\/\(.*\)\.git/\1/'
+# }
 
-parse_git() {
-  # local git_handle="$(parse_git_handle)"
-  local git_repo="$(parse_git_repo)"
-  local git_branch="$(parse_git_branch)"
+# parse_git() {
+#   # local git_handle="$(parse_git_handle)"
+#   local git_repo="$(parse_git_repo)"
+#   local git_branch="$(parse_git_branch)"
 
-  # [[ ! -z "$git_handle" && ! -z "$git_repo" && ! -z "$git_branch" ]] && echo " ($git_handle/$git_repo@$git_branch)"
-  # [[ ! -z "$git_repo" && ! -z "$git_branch" ]] && echo " ($git_repo@$git_branch)"
-  [[ ! -z "$git_branch" ]] && echo " ($git_branch)"
-}
+#   # [[ ! -z "$git_handle" && ! -z "$git_repo" && ! -z "$git_branch" ]] && echo " ($git_handle/$git_repo@$git_branch)"
+#   # [[ ! -z "$git_repo" && ! -z "$git_branch" ]] && echo " ($git_repo@$git_branch)"
+#   [[ ! -z "$git_branch" ]] && echo " ($git_branch)"
+# }
 
-export PS1="\u@\h \W\[\033[32m\]\$(parse_git)\[\033[00m\] $ "
+# export PS1="\u@\h \W\[\033[32m\]\$(parse_git)\[\033[00m\] $ "
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/dd/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/dd/Downloads/google-cloud-sdk/path.bash.inc'; fi
+# if [ -f '/Users/dd/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/dd/Downloads/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/dd/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/dd/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+# if [ -f '/Users/dd/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/dd/Downloads/google-cloud-sdk/completion.bash.inc'; fi
 
 # chruby
 [ -s "/usr/local/opt/chruby/share/chruby/chruby.sh" ] && source /usr/local/opt/chruby/share/chruby/chruby.sh
@@ -101,4 +101,4 @@ eval "$(thefuck --alias)"
 
 # fzf key-bindings
 # https://github.com/junegunn/fzf#key-bindings-for-command-line
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
