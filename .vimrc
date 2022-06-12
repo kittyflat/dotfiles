@@ -163,7 +163,10 @@ endif
 " nnoremap <silent> <ESC><ESC> :nohlsearch \| match none \| 2match none \| call coc#float#close_all()<CR>
 nnoremap <silent> <ESC><ESC> :call coc#float#close_all()<CR>
 
-Plug 'ayu-theme/ayu-vim' " or other package manager
+" Ayu doesn't work with vim 8.2
+" https://github.com/ayu-theme/ayu-vim/issues/73#issuecomment-1069212456
+" Plug 'ayu-theme/ayu-vim' " or other package manager
+Plug 'Luxed/ayu-vim'
 
 Plug 'hashivim/vim-terraform'
 
@@ -388,11 +391,11 @@ au BufNewFile,BufRead *.tsx                               set filetype=typescrip
 "colorscheme jellybeans
 "colorscheme Tomorrow-Night-Eighties
 
-" ayu-theme/ayu-vim
+" luxed/ayu-vim
 set termguicolors     " enable true colors support
-" let ayucolor="light"  " for light version of theme
-let ayucolor="mirage" " for mirage version of theme
-" let ayucolor="dark"   " for dark version of theme
+" let g:ayucolor="light"  " for light version of theme
+let g:ayucolor="mirage" " for mirage version of theme
+" let g:ayucolor="dark"   " for dark version of theme
 colorscheme ayu
 " ayu default's LineNr:
 " LineNr         xxx ctermfg=11 guifg=#2D3640
