@@ -174,6 +174,8 @@ Plug 'ntpeters/vim-better-whitespace'
 let g:better_whitespace_guicolor='#c63f4f'
 
 Plug 'keith/rspec.vim'
+
+Plug 'vim-utils/vim-ruby-fold'
 call plug#end()
 
 " These are added by default with `vim-plug`
