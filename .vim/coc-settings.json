@@ -15,6 +15,7 @@
       "args": [
         "exec",
         "rubocop",
+        "--force-exclusion",
         "--format",
         "json",
         "--stdin",
