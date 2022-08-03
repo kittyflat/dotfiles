@@ -338,6 +338,14 @@ noremap + <C-w>+
 noremap <C-n> <C-w><
 noremap <C-m> <C-w>>
 
+" Zoom split with <C-w>z resize current split to max height/width
+" Un-zoom split with <C-w>= makes splits equal size
+" Inspired by https://medium.com/@vinodkri/zooming-vim-window-splits-like-a-pro-d7a9317d40
+noremap <C-w>z <c-w>_ \| <c-w>\|
+" Overwrite <C-w>o to zoom (resize current split to max size) to prevent accidental closing of splits
+" Instead of <C-w>o, use <C-w>t to open current split in new tab, and then :tabc to close old tab
+map <C-w>o <C-w>z
+
 " Map fzf search to ctrl-p
 nnoremap <C-p> :Files<Cr>
 " Map Fzf GGrep to ctrl-f
