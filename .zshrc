@@ -14,6 +14,13 @@ bindkey "^[[1;3D" backward-word
 # https://superuser.com/a/1309966
 setopt ignore_eof
 
+# Use bash manner of moving/editing words, only alphanumeric characters are
+# considered word characters (i.e. stop backward-kill-word on / and _ characters)
+# https://stackoverflow.com/questions/444951/zsh-stop-backward-kill-word-on-directory-delimiter
+# https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Widgets
+autoload -U select-word-style
+select-word-style bash
+
 # Prompt
 # https://www.themoderncoder.com/add-git-branch-information-to-your-zsh-prompt/
 #
