@@ -3,6 +3,8 @@
 # https://stackoverflow.com/questions/12373586/how-to-reverse-i-search-back-and-forth
 # https://superuser.com/questions/472846/how-to-reverse-i-search-back-and-forth
 # https://unix.stackexchange.com/questions/73498/how-to-cycle-through-reverse-i-search-in-bash
+# https://news.ycombinator.com/item?id=9752238
+# https://www.mkssoftware.com/docs/man1/stty.1.asp
 stty -ixon
 
 export TERM=xterm-256color
