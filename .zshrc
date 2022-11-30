@@ -53,3 +53,8 @@ export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 
 # Load local config if exists
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
+
+# Warning: Homebrew's "sbin" was not found in your PATH but you have installed
+# formulae that put executables in /usr/local/sbin.
+# Consider setting your PATH for example like so:
+export PATH="/usr/local/sbin:$PATH"
