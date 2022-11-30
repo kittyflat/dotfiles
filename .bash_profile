@@ -9,7 +9,7 @@ export TERM=xterm-256color
 export EDITOR=vim
 # export PATH=/usr/local/bin:$PATH
 # export PATH="/usr/local/opt/curl/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
+# export PATH="/usr/local/sbin:$PATH"
 # export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 # for pg modeler
 # export PATH="/usr/local/opt/qt/bin:$PATH"
