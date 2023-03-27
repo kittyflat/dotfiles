@@ -312,6 +312,9 @@ cnoreabbrev Gb Git<space>blame
 cnoreabbrev Gbl Git<space>blame
 cnoreabbrev Gbla Git<space>blame
 
+" Alias format JSON
+cnoreabbrev FormatJson %!python3 -m json.tool
+
 " Move between splits with ctrl+kjhl
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
