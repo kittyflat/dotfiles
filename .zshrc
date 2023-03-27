@@ -58,3 +58,26 @@ export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 # formulae that put executables in /usr/local/sbin.
 # Consider setting your PATH for example like so:
 export PATH="/usr/local/sbin:$PATH"
+
+# Graphite zsh tab completion
+# https://docs.graphite.dev/guides/graphite-cli/installing-the-cli/shell-completion-setup
+#compdef gt
+###-begin-gt-completions-###
+#
+# yargs command completion script
+#
+# Installation: gt completion >> ~/.zshrc
+#    or gt completion >> ~/.zprofile on OSX.
+#
+_gt_yargs_completions()
+{
+  local reply
+  local si=$IFS
+  IFS=$'
+' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" gt --get-yargs-completions "${words[@]}"))
+  IFS=$si
+  _describe 'values' reply
+}
+compdef _gt_yargs_completions gt
+###-end-gt-completions-###
+
