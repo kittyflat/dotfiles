@@ -422,9 +422,10 @@ highlight Directory guifg=#36A3D9 " ayu's tag color
 " let g:netrw_special_syntax=1
 " highlight Search guifg=wheat guibg=peru
 highlight Search guifg=wheat guibg=#6e2c71
-highlight CursorLine guibg=#060060 " darkblue
-highlight CursorColumn guibg=#060060 " darkblue
-highlight ColorColumn guibg=#320040 " darkpurp
+" These colors were picked using google color picker:
+highlight CursorLine guibg=#070070
+highlight CursorColumn guibg=#070070
+highlight ColorColumn guibg=#260030
 " These get overridden by lightline
 " hi StatusLine guifg=#E7E1CF guibg=#14191F
 " highlight StatusLine guifg=wheat guibg=peru
