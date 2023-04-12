@@ -11,6 +11,9 @@ set nocompatible
 " Run :PlugInstall
 call plug#begin()
 
+Plug 'tpope/vim-obsession' " https://github.com/tpope/vim-obsession
+
+" Plug 'apzelos/blamer.nvim'
 Plug 'tpope/vim-sensible'
 
 " https://github.com/wesQ3/vim-windowswap
@@ -222,7 +225,7 @@ set expandtab
 " set nowrap
 set number "display line numbers
 " http://joshorourke.com/2012/06/29/vim-tip-how-to-use-vertical-guides
-set colorcolumn=80
+set colorcolumn=120
 set swapfile
 set dir=~/.vim/tmp/swap
 set backup
