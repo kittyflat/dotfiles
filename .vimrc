@@ -400,6 +400,7 @@ au BufNewFile,BufRead *.hcl                               set ft=terraform
 au BufNewFile,BufRead nginx*.conf,/etc/nginx/conf/*.conf  set ft=nginx
 au BufNewFile,BufRead *.tsx                               set filetype=typescriptreact
 au BufNewFile,BufRead .env.* set ft=sh
+au BufNewFile,BufRead .yml.* set ft=yaml
 
 "colorscheme solarized
 "colorscheme molokai
