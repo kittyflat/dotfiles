@@ -892,6 +892,20 @@ key_bindings:
   # https://github.com/jwilm/alacritty/issues/93#issuecomment-427592040
   - { key: D,  mods: Alt,           chars: "\x1bd"                       }
 
+  # Alt + Number keymaps
+  # These are useful for the default tmux bindings
+  # https://github.com/alacritty/alacritty/issues/93#issuecomment-867132658
+  - { key: Key0, mods: Alt, chars: "\x1b0" }
+  - { key: Key1, mods: Alt, chars: "\x1b1" }
+  - { key: Key2, mods: Alt, chars: "\x1b2" }
+  - { key: Key3, mods: Alt, chars: "\x1b3" }
+  - { key: Key4, mods: Alt, chars: "\x1b4" }
+  - { key: Key5, mods: Alt, chars: "\x1b5" }
+  - { key: Key6, mods: Alt, chars: "\x1b6" }
+  - { key: Key7, mods: Alt, chars: "\x1b7" }
+  - { key: Key8, mods: Alt, chars: "\x1b8" }
+  - { key: Key9, mods: Alt, chars: "\x1b9" }
+  - { key: O, mods: Alt, chars: "\x1bo" }
   # Get Ctrl-Shift-H/J/K/L to send appropriate sequence
   # Used in .tmux.conf
   # https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
