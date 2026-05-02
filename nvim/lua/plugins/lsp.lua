@@ -20,7 +20,7 @@ return {
     },
   },
 
-  -- LSP configuration
+  -- LSP configuration (nvim 0.11+ API)
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -29,28 +29,30 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      local lspconfig = require("lspconfig")
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
       local servers = { "ts_ls", "ruby_lsp", "pyright", "terraformls", "jsonls" }
-      for _, server in ipairs(servers) do
-        lspconfig[server].setup({ capabilities = capabilities })
-      end
+
+      -- Apply capabilities to all servers globally
+      vim.lsp.config("*", {
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      })
+
+      -- Enable servers (mason-lspconfig handles installation)
+      vim.lsp.enable(servers)
 
       -- LSP keymaps (set when LSP attaches to a buffer)
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(ev)
           local map = vim.keymap.set
           local opts = { buffer = ev.buf }
-          map("n", "gd",          vim.lsp.buf.definition,    opts)
-          map("n", "gr",          vim.lsp.buf.references,    opts)
+          map("n", "gd",          vim.lsp.buf.definition,     opts)
+          map("n", "gr",          vim.lsp.buf.references,     opts)
           map("n", "gi",          vim.lsp.buf.implementation, opts)
-          map("n", "K",           vim.lsp.buf.hover,         opts)
-          map("n", "<leader>rn",  vim.lsp.buf.rename,        opts)
-          map("n", "<leader>ca",  vim.lsp.buf.code_action,   opts)
-          map("n", "[d",          vim.diagnostic.goto_prev,  opts)
-          map("n", "]d",          vim.diagnostic.goto_next,  opts)
-          map("n", "<leader>d",   vim.diagnostic.open_float, opts)
+          map("n", "K",           vim.lsp.buf.hover,          opts)
+          map("n", "<leader>rn",  vim.lsp.buf.rename,         opts)
+          map("n", "<leader>ca",  vim.lsp.buf.code_action,    opts)
+          map("n", "[d",          vim.diagnostic.goto_prev,   opts)
+          map("n", "]d",          vim.diagnostic.goto_next,   opts)
+          map("n", "<leader>d",   vim.diagnostic.open_float,  opts)
         end,
       })
     end,
