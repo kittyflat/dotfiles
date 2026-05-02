@@ -29,6 +29,7 @@ window-padding-balance = true
 
 background-opacity = 0.97
 background-blur = true
+unfocused-split-opacity = 0.92
 
 # Nice on macOS
 macos-titlebar-style = transparent
