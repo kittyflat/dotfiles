@@ -166,7 +166,6 @@ set termguicolors
 let g:ayucolor="mirage"
 colorscheme ayu
 
-highlight Normal       guibg=#0c1014
 highlight LineNr       guifg=#6b6b47
 highlight Comment      guifg=#527077
 highlight Directory    guifg=#36A3D9
