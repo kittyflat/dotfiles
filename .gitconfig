@@ -3,7 +3,8 @@
 	br = branch
 	ci = commit
 	st = status
-  dif = diff
+[include]
+	path = ~/.gitconfig.local
 [user]
 	name = Jason Su
 	email = 164670+kittyflat@users.noreply.github.com
