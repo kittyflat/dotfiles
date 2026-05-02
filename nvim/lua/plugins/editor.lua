@@ -37,7 +37,6 @@ return {
   },
 
   -- Language-specific
-  { "hashivim/vim-terraform" },
-  { "keith/rspec.vim" },
+{ "keith/rspec.vim" },
   { "vim-utils/vim-ruby-fold" },
 }

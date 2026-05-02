@@ -8,7 +8,7 @@ return {
     opts = {
       ensure_installed = {
         "javascript", "typescript", "tsx", "json", "markdown", "markdown_inline",
-        "ruby", "python", "terraform", "lua", "vim", "vimdoc", "bash", "yaml",
+        "ruby", "python", "lua", "vim", "vimdoc", "bash", "yaml",
       },
       auto_install = true,
       highlight = { enable = true },
