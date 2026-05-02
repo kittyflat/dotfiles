@@ -1,10 +1,10 @@
 # vim: ft=ghostty
 # ============================================================
-# Ghostty config for macOS
+# Ghostty config for macOS (https://ghostty.org/docs/config)
 # Place at: ~/.config/ghostty/config.ghostty
 #
 # Symlink:
-# ln -s ~/Projects/dotfiles/ghostty/config.ghostty ~/.config/ghostty/config.ghostty
+# ln -s path/to/dotfiles/ghostty/config.ghostty ~/.config/ghostty/config.ghostty
 #
 # Reload in Ghostty with: Cmd+Shift+,
 # ============================================================
@@ -17,7 +17,7 @@ font-size = 12
 
 # ----------------------------
 # Colors
-# Based on your Alacritty Ayu Dark colors
+# Based on Ayu Dark colors
 # ----------------------------
 background = #0A0E14
 foreground = #B3B1AD
@@ -49,7 +49,7 @@ window-padding-balance = true
 
 # Optional subtle translucency.
 # Set to 1.0 if you want fully opaque.
-background-opacity = 0.96
+background-opacity = 0.9
 background-blur = true
 
 # Nice on macOS
@@ -62,9 +62,8 @@ cursor-style = block
 cursor-style-blink = true
 mouse-hide-while-typing = true
 
-# Make Option behave like Alt for shell/editor shortcuts.
-# Since you use Alt-b / Alt-f / Alt-d style movement in zsh,
-# this is a very relevant carry-over.
+# Treat Option as Alt for shell/editor shortcuts (e.g. Alt-b/f/d in zsh).
+# Default for U.S. layouts (https://ghostty.org/docs/config/reference#macos-option-as-alt)
 macos-option-as-alt = true
 
 # ----------------------------
@@ -84,13 +83,9 @@ link-previews = true
 
 # ----------------------------
 # Scrollback / scrolling
-# Alacritty had 100000 lines. Ghostty uses bytes, not lines,
-# so this is an approximation with a generous buffer.
-# ----------------------------
-scrollback-limit = 100000000
-
-# Disable mouse-wheel scrolling like your Alacritty multiplier: 0
-mouse-scroll-multiplier = 0
+# Scrollback buffer (in bytes) for logs, test runs, and debugging.
+# Default is 64 MB. 134217728 = 128 MB.
+scrollback-limit = 134217728
 
 # ----------------------------
 # Safety
@@ -101,40 +96,23 @@ confirm-close-surface = true
 # Keybindings
 # ----------------------------
 
-# Keep your Alacritty habit of preventing accidental quit/close
+# Prevent accidental quit/close
 keybind = cmd+q=ignore
 keybind = cmd+w=ignore
+keybind = cmd+alt+w=ignore
+keybind = cmd+shift+w=ignore
+keybind = cmd+shift+alt+w=ignore
 
-# Split management
-keybind = cmd+enter=new_split:down
-keybind = cmd+d=new_split:right
+# Splits
+keybind = cmd+shift+\=new_split:right
+keybind = cmd+shift+-=new_split:down
 
-# Focus movement between splits
-keybind = cmd+h=goto_split:left
-keybind = cmd+j=goto_split:down
-keybind = cmd+k=goto_split:up
-keybind = cmd+l=goto_split:right
+# Vim-style split navigation
+keybind = cmd+shift+h=goto_split:left
+keybind = cmd+shift+j=goto_split:down
+keybind = cmd+shift+k=goto_split:up
+keybind = cmd+shift+l=goto_split:right
 
-# Tabs
-keybind = cmd+t=new_tab
-keybind = cmd+shift+]=next_tab
-keybind = cmd+shift+[=previous_tab
-
-# Optional safer close actions
-keybind = cmd+shift+w=close_surface
-keybind = cmd+shift+q=close_window
-
-# Font sizing
-keybind = cmd+=increase_font_size:1
-keybind = cmd+-=decrease_font_size:1
-keybind = cmd+0=reset_font_size
-
-# Handy utilities
-keybind = cmd+shift+c=copy_to_clipboard
-keybind = cmd+shift+v=paste_from_clipboard
-keybind = cmd+shift+f=start_search
-keybind = cmd+shift+p=toggle_command_palette
-keybind = cmd+,=open_config
-
-# Quick terminal, if you want to try that later
+# Quick terminal
 # keybind = global:cmd+backquote=toggle_quick_terminal
+# keybind = global:cmd+shift+space=toggle_quick_terminal
