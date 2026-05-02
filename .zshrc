@@ -74,6 +74,11 @@ fg() {
 }
 
 # ============================================================
+# Completions
+# ============================================================
+autoload -Uz compinit && compinit
+
+# ============================================================
 # Graphite (gt) tab completion
 # https://docs.graphite.dev/guides/graphite-cli/installing-the-cli/shell-completion-setup
 # ============================================================
