@@ -165,6 +165,7 @@ set secure
 set termguicolors
 let g:ayucolor="mirage"
 colorscheme ayu
+highlight Normal guibg=NONE
 
 highlight LineNr       guifg=#6b6b47
 highlight Comment      guifg=#527077
