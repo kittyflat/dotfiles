@@ -1,0 +1,140 @@
+# vim: ft=ghostty
+# ============================================================
+# Ghostty config for macOS
+# Place at: ~/.config/ghostty/config.ghostty
+#
+# Symlink:
+# ln -s ~/Projects/dotfiles/ghostty/config.ghostty ~/.config/ghostty/config.ghostty
+#
+# Reload in Ghostty with: Cmd+Shift+,
+# ============================================================
+
+# ----------------------------
+# Font
+# ----------------------------
+font-family = MonoLisa
+font-size = 11
+
+# ----------------------------
+# Colors
+# Based on your Alacritty Ayu Dark colors
+# ----------------------------
+background = #0A0E14
+foreground = #B3B1AD
+
+palette = 0=#01060E
+palette = 1=#EA6C73
+palette = 2=#91B362
+palette = 3=#F9AF4F
+palette = 4=#53BDFA
+palette = 5=#FAE994
+palette = 6=#90E1C6
+palette = 7=#C7C7C7
+
+palette = 8=#686868
+palette = 9=#F07178
+palette = 10=#C2D94C
+palette = 11=#FFB454
+palette = 12=#59C2FF
+palette = 13=#FFEE99
+palette = 14=#95E6CB
+palette = 15=#FFFFFF
+
+# ----------------------------
+# Window feel
+# ----------------------------
+window-padding-x = 6
+window-padding-y = 6
+window-padding-balance = true
+
+# Optional subtle translucency.
+# Set to 1.0 if you want fully opaque.
+background-opacity = 0.96
+background-blur = true
+
+# Nice on macOS
+macos-titlebar-style = transparent
+
+# ----------------------------
+# Cursor / input behavior
+# ----------------------------
+cursor-style = block
+cursor-style-blink = true
+mouse-hide-while-typing = true
+
+# Make Option behave like Alt for shell/editor shortcuts.
+# Since you use Alt-b / Alt-f / Alt-d style movement in zsh,
+# this is a very relevant carry-over.
+macos-option-as-alt = true
+
+# ----------------------------
+# Shell integration / working dir inheritance
+# ----------------------------
+shell-integration = detect
+window-inherit-working-directory = true
+tab-inherit-working-directory = true
+split-inherit-working-directory = true
+
+# ----------------------------
+# Clipboard / selection / links
+# ----------------------------
+copy-on-select = clipboard
+link-url = true
+link-previews = true
+
+# ----------------------------
+# Scrollback / scrolling
+# Alacritty had 100000 lines. Ghostty uses bytes, not lines,
+# so this is an approximation with a generous buffer.
+# ----------------------------
+scrollback-limit = 100000000
+
+# Disable mouse-wheel scrolling like your Alacritty multiplier: 0
+mouse-scroll-multiplier = 0
+
+# ----------------------------
+# Safety
+# ----------------------------
+confirm-close-surface = true
+
+# ----------------------------
+# Keybindings
+# ----------------------------
+
+# Keep your Alacritty habit of preventing accidental quit/close
+keybind = cmd+q=ignore
+keybind = cmd+w=ignore
+
+# Split management
+keybind = cmd+enter=new_split:down
+keybind = cmd+d=new_split:right
+
+# Focus movement between splits
+keybind = cmd+h=goto_split:left
+keybind = cmd+j=goto_split:down
+keybind = cmd+k=goto_split:up
+keybind = cmd+l=goto_split:right
+
+# Tabs
+keybind = cmd+t=new_tab
+keybind = cmd+shift+]=next_tab
+keybind = cmd+shift+[=previous_tab
+
+# Optional safer close actions
+keybind = cmd+shift+w=close_surface
+keybind = cmd+shift+q=close_window
+
+# Font sizing
+keybind = cmd+=increase_font_size:1
+keybind = cmd+-=decrease_font_size:1
+keybind = cmd+0=reset_font_size
+
+# Handy utilities
+keybind = cmd+shift+c=copy_to_clipboard
+keybind = cmd+shift+v=paste_from_clipboard
+keybind = cmd+shift+f=start_search
+keybind = cmd+shift+p=toggle_command_palette
+keybind = cmd+,=open_config
+
+# Quick terminal, if you want to try that later
+# keybind = global:cmd+backquote=toggle_quick_terminal
