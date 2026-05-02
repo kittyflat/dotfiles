@@ -21,18 +21,6 @@ autoload -U select-word-style
 select-word-style bash
 
 # ============================================================
-# Prompt
-# ============================================================
-
-autoload -Uz vcs_info
-precmd() { vcs_info }
-zstyle ':vcs_info:git:*' formats '%b'
-setopt PROMPT_SUBST
-
-PROMPT='[%D{%y/%m/%f} %D{%L:%M:%S}] %n@%m %(3~|%2~|%~) $ '
-RPROMPT=\$vcs_info_msg_0_
-
-# ============================================================
 # Environment
 # ============================================================
 
@@ -49,18 +37,22 @@ export SAVEHIST=1000
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/**'"
 
 # ============================================================
+# PATH
+# ============================================================
+
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
+
+# ============================================================
 # Tool setup
 # ============================================================
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
+# asdf
+export ASDF_DATA_DIR="$HOME/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
-# pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+# direnv
+eval "$(direnv hook zsh)"
 
 # ============================================================
 # Aliases
@@ -106,6 +98,16 @@ compdef _gt_yargs_completions gt
 ###-end-gt-completions-###
 
 # ============================================================
-# Local overrides (machine-specific config, secrets, etc.)
+# Secrets
+# ============================================================
+[ -f ~/.secrets ] && source ~/.secrets
+
+# ============================================================
+# Local overrides (machine-specific config, etc.)
 # ============================================================
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
+
+# ============================================================
+# Prompt (last so nothing above overrides it)
+# ============================================================
+eval "$(starship init zsh)"
