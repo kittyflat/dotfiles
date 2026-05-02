@@ -82,7 +82,30 @@ fg() {
 }
 
 # ============================================================
-# Local overrides
-# Machine-specific config, secrets, tool completions (e.g. gt, aws, etc.)
+# Graphite (gt) tab completion
+# https://docs.graphite.dev/guides/graphite-cli/installing-the-cli/shell-completion-setup
+# ============================================================
+#compdef gt
+###-begin-gt-completions-###
+#
+# yargs command completion script
+#
+# Installation: gt completion >> ~/.zshrc
+#    or gt completion >> ~/.zprofile on OSX.
+#
+_gt_yargs_completions()
+{
+  local reply
+  local si=$IFS
+  IFS=$'
+' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" gt --get-yargs-completions "${words[@]}"))
+  IFS=$si
+  _describe 'values' reply
+}
+compdef _gt_yargs_completions gt
+###-end-gt-completions-###
+
+# ============================================================
+# Local overrides (machine-specific config, secrets, etc.)
 # ============================================================
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
