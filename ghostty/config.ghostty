@@ -100,7 +100,7 @@ confirm-close-surface = true
 keybind = cmd+q=ignore
 keybind = cmd+w=ignore
 keybind = cmd+alt+w=ignore
-keybind = cmd+shift+w=ignore
+keybind = cmd+shift+w=close_surface
 keybind = cmd+shift+alt+w=ignore
 
 # Splits
