@@ -10,10 +10,11 @@ return {
     "williamboman/mason-lspconfig.nvim",
     opts = {
       ensure_installed = {
-        "ts_ls",     -- TypeScript / JavaScript
-        "ruby_lsp",  -- Ruby
-        "pyright",   -- Python
-        "jsonls",    -- JSON
+        "ts_ls",        -- TypeScript / JavaScript
+        "ruby_lsp",     -- Ruby
+        "pyright",      -- Python
+        "terraformls",  -- Terraform
+        "jsonls",       -- JSON
       },
       automatic_installation = true,
     },
@@ -28,7 +29,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      local servers = { "ts_ls", "ruby_lsp", "pyright", "jsonls" }
+      local servers = { "ts_ls", "ruby_lsp", "pyright", "terraformls", "jsonls" }
 
       -- Apply capabilities to all servers globally
       vim.lsp.config("*", {
@@ -115,6 +116,7 @@ return {
         markdown        = { "prettier" },
         json            = { "prettier" },
         ruby            = { "rubocop" },
+        terraform       = { "terraform_fmt" },
       },
     },
   },
