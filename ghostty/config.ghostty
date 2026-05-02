@@ -47,9 +47,7 @@ window-padding-x = 6
 window-padding-y = 6
 window-padding-balance = true
 
-# Optional subtle translucency.
-# Set to 1.0 if you want fully opaque.
-background-opacity = 0.9
+background-opacity = 0.97
 background-blur = true
 
 # Nice on macOS
