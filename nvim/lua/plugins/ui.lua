@@ -52,7 +52,7 @@ return {
         lualine_a = { "tabs" },
         lualine_b = {},
         lualine_c = {},
-        lualine_x = { "filetype", "encoding", "fileformat" },
+        lualine_x = { "diagnostics", "filetype", "encoding", "fileformat" },
         lualine_y = {},
         lualine_z = { "branch" },
       },
