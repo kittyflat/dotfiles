@@ -25,7 +25,7 @@ select-word-style bash
 # ============================================================
 
 export TERM=xterm-256color
-export EDITOR=vim
+export EDITOR=nvim
 export PAGER=less
 export CLICOLOR=1
 
