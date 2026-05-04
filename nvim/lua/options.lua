@@ -32,7 +32,7 @@ opt.clipboard = "unnamed"
 opt.history = 1000
 opt.fileformat = "unix"
 opt.updatetime = 300
-opt.hidden = false
+opt.hidden = true
 opt.backspace = "indent,eol,start"
 opt.belloff = "all"
 

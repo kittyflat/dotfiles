@@ -7,8 +7,22 @@ return {
     opts = {},
   },
 
-  -- Commenting (gc / gcc)
-  { "tpope/vim-commentary" },
+  -- Commenting (gc / gcc) — context-aware, handles JSX correctly
+  {
+    "numToStr/Comment.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  -- Auto-close brackets, quotes, etc.
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup({})
+      require("cmp").event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
+    end,
+  },
 
   -- Text coercion and substitution (crs, crc, cru, etc.)
   { "tpope/vim-abolish" },

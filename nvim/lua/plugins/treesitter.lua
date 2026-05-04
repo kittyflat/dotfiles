@@ -2,6 +2,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
     -- Replaces: vim-javascript, vim-jsx-pretty, typescript-vim, vim-tsx,
     --           vim-json, plasticboy/vim-markdown
     opts = {
@@ -12,6 +13,23 @@ return {
       auto_install = true,
       highlight = { enable = true },
       indent = { enable = true },
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true,
+          keymaps = {
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
+          },
+        },
+        move = {
+          enable = true,
+          goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
+          goto_prev_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
+        },
+      },
     },
   },
 }
