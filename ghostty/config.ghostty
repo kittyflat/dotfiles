@@ -60,7 +60,8 @@ link-url = true
 link-previews = true
 
 # ----------------------------
-# Scrollback / scrolling
+# Scrollback
+# ----------------------------
 # Scrollback buffer (in bytes) for logs, test runs, and debugging.
 # Default is 64 MB. 134217728 = 128 MB.
 scrollback-limit = 134217728
@@ -86,10 +87,14 @@ keybind = cmd+shift+\=new_split:right
 keybind = cmd+shift+-=new_split:down
 
 # Vim-style split navigation
-keybind = cmd+shift+h=goto_split:left
-keybind = cmd+shift+j=goto_split:down
-keybind = cmd+shift+k=goto_split:up
-keybind = cmd+shift+l=goto_split:right
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+l=goto_split:right
+
+# Scrolling
+keybind = ctrl+shift+u=scroll_page_up
+keybind = ctrl+shift+d=scroll_page_down
 
 # Quick terminal
 # keybind = global:cmd+backquote=toggle_quick_terminal
