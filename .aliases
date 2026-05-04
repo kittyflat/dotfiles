@@ -1,5 +1,5 @@
-alias v="vim"
-alias vf='vim $(fzf)'
+alias v="nvim"
+alias vf='nvim $(fzf)'
 alias g="git"
 alias gg="git grep"
 alias gd="git diff"
