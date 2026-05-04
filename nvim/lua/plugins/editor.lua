@@ -13,12 +13,6 @@ return {
   -- Text coercion and substitution (crs, crc, cru, etc.)
   { "tpope/vim-abolish" },
 
-  -- Session management
-  { "tpope/vim-obsession" },
-
-  -- Window swapping (\ww in two windows)
-  { "wesQ3/vim-windowswap" },
-
   -- File explorer (replaces netrw / :E)
   {
     "stevearc/oil.nvim",
@@ -37,6 +31,5 @@ return {
   },
 
   -- Language-specific
-  { "hashivim/vim-terraform" },
   { "keith/rspec.vim" },
 }

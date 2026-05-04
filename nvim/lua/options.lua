@@ -55,6 +55,10 @@ for _, dir in ipairs({ data .. "/swap", data .. "/backup", data .. "/undo" }) do
   vim.fn.mkdir(dir, "p")
 end
 
+-- Trailing whitespace (native, styled via Whitespace highlight in ui.lua)
+opt.list = true
+opt.listchars = { trail = "·" }
+
 -- Folding (treesitter-based)
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim-treesitter#foldexpr()"

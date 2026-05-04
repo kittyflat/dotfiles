@@ -19,6 +19,7 @@ return {
           CursorLine   = { bg = "#070070" },
           CursorColumn = { bg = "#070070" },
           ColorColumn  = { bg = "#260030" },
+          Whitespace   = { fg = "#c63f4f" },  -- trailing space indicator
         },
       })
       vim.cmd("colorscheme ayu")
@@ -65,11 +66,4 @@ return {
     opts = {},
   },
 
-  -- Trailing whitespace highlight
-  {
-    "ntpeters/vim-better-whitespace",
-    config = function()
-      vim.g.better_whitespace_guicolor = "#c63f4f"
-    end,
-  },
 }

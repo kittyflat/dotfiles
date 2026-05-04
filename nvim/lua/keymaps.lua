@@ -56,10 +56,6 @@ vim.api.nvim_create_user_command("Prettier", function()
   require("conform").format({ formatters = { "prettier" } })
 end, {})
 
-vim.api.nvim_create_user_command("FormatJson", function()
-  vim.cmd("%!python3 -m json.tool")
-end, {})
-
 -- Abbreviations
 local abbrevs = {
   { "E",    "Oil" },
