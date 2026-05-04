@@ -55,6 +55,11 @@ for _, dir in ipairs({ data .. "/swap", data .. "/backup", data .. "/undo" }) do
   vim.fn.mkdir(dir, "p")
 end
 
+-- Folding (treesitter-based)
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim-treesitter#foldexpr()"
+opt.foldenable = false  -- open all folds when a file is opened
+
 -- Project-specific .nvim.lua
 opt.exrc = true
 opt.secure = true
