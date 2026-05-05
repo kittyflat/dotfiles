@@ -49,7 +49,7 @@ return {
         lualine_z = { "location" },
       },
       tabline = {
-        lualine_a = { { "tabs", mode = 1 } },  -- mode=1: show filename
+        lualine_a = { { "tabs", mode = 1, fmt = function(name, ctx) return ctx.tabnr .. " " .. name end } },
         lualine_b = {},
         lualine_c = {},
         lualine_x = { "filetype", "encoding" },
