@@ -11,7 +11,15 @@ return {
       telescope.setup({
         defaults = {
           layout_strategy = "bottom_pane",
-          layout_config = { height = 0.4 },
+          layout_config = {
+            height = 0.5,         -- taller pane, more room for results
+            preview_width = 0.45, -- less preview, more results width
+          },
+          mappings = {
+            i = {
+              ["<M-p>"] = require("telescope.actions.layout").toggle_preview,
+            },
+          },
         },
       })
       telescope.load_extension("fzf")

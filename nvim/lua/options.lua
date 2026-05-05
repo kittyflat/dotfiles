@@ -59,9 +59,15 @@ opt.list = true
 opt.listchars = { trail = "·" }
 
 -- Folding (treesitter-based)
+-- Folding (treesitter-based, built-in neovim 0.10+)
+-- foldlevelstart=99: files open fully expanded, but zM/zc/zR work immediately.
+-- The fold query runs async on first open (reusing the existing parse tree).
+-- Alternative: foldenable=false avoids all fold work at open but requires
+-- `:set foldenable` before zM/zc will do anything.
+-- Source: runtime/lua/vim/treesitter/_fold.lua (M.foldexpr, compute_folds_levels)
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.foldenable = false  -- use zM to enable folding, zR to open all
+opt.foldlevelstart = 99  -- zM/zc to fold, zR to open all
 
 -- Project-specific .nvim.lua
 opt.exrc = true
