@@ -15,6 +15,7 @@ return {
         "pyright",      -- Python
         "terraformls",  -- Terraform
         "jsonls",       -- JSON
+        "yamlls",       -- YAML
       },
       automatic_installation = true,
     },
@@ -29,7 +30,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      local servers = { "ts_ls", "ruby_lsp", "pyright", "terraformls", "jsonls" }
+      local servers = { "ts_ls", "ruby_lsp", "pyright", "terraformls", "jsonls", "yamlls" }
 
       -- Apply capabilities to all servers globally
       vim.lsp.config("*", {
