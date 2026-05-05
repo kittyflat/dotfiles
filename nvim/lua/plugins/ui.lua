@@ -31,7 +31,7 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
-      options = { theme = "ayu_mirage" },
+      options = { theme = "ayu_mirage", section_separators = "", component_separators = "" },
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "readonly", { "filename", path = 1 }, "modified" },
