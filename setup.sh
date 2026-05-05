@@ -1,8 +1,14 @@
 #!/bin/sh
 DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
-ln -snf "$DOTFILES/nvim" ~/.config/nvim
-mkdir -p ~/.config/ghostty && ln -snf "$DOTFILES/ghostty/config.ghostty" ~/.config/ghostty/config.ghostty
-mkdir -p ~/.config/tmux && ln -snf "$DOTFILES/tmux/tmux.conf" ~/.config/tmux/tmux.conf
+link() {
+  mkdir -p "$(dirname "$2")"
+  ln -snf "$1" "$2"
+  echo "  $2 -> $1"
+}
 
+echo "Symlinking dotfiles from $DOTFILES..."
+link "$DOTFILES/nvim"                              ~/.config/nvim
+link "$DOTFILES/ghostty/config.ghostty"            ~/.config/ghostty/config.ghostty
+link "$DOTFILES/tmux/tmux.conf"                    ~/.config/tmux/tmux.conf
 echo "Done."
