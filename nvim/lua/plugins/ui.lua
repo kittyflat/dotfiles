@@ -50,7 +50,7 @@ return {
       },
       tabline = {
         lualine_a = {},
-        lualine_b = { { "tabs", mode = 1, tabs_color = { active = "lualine_b_normal", inactive = "lualine_c_normal" }, fmt = function(name, ctx) return ctx.tabnr .. " " .. name end } },
+        lualine_b = { { "tabs", mode = 1, max_length = function() return vim.o.columns end, tabs_color = { active = "lualine_b_normal", inactive = "lualine_c_normal" }, fmt = function(name, ctx) return ctx.tabnr .. " " .. name end } },
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
