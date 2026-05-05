@@ -6,6 +6,4 @@ alias gd="git diff"
 alias gds="git diff --staged"
 alias gs="git status"
 
-alias dotfiles="cd ~/Projects/dotfiles"
-
 [ -f ~/.aliases.local ] && source ~/.aliases.local
