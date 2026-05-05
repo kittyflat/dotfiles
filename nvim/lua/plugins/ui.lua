@@ -59,6 +59,17 @@ return {
     },
   },
 
+  -- Indent guides
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    event = "BufReadPost",
+    opts = {
+      indent = { char = "│" },
+      scope = { enabled = false },
+    },
+  },
+
   -- Keybinding hints
   {
     "folke/which-key.nvim",
