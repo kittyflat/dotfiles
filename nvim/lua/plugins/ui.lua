@@ -17,7 +17,6 @@ return {
           Directory    = { fg = "#36A3D9" },
           Search       = { fg = "#f5deb3", bg = "#6e2c71" },
           CursorLine   = { bg = "#252d3d" },  -- subtle row highlight
-          ColorColumn  = { bg = "#2a2535" },  -- barely visible 120-col reminder
           Whitespace   = { fg = "#c63f4f" },  -- trailing space indicator
           IblIndent    = { fg = "#252b38" },  -- nearly invisible inactive guides
           IblScope     = { fg = "#4d5566" },  -- visible scope highlight

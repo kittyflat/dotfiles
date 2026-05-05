@@ -9,7 +9,6 @@ opt.autoindent = true
 
 -- Display
 opt.number = true
-opt.colorcolumn = "120"
 opt.scrolloff = 5
 opt.background = "dark"
 opt.termguicolors = true
