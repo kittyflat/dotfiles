@@ -20,7 +20,7 @@ font-size = 12
 theme = Ayu
 
 # ----------------------------
-# Window feel
+# Appearance
 # ----------------------------
 window-padding-x = 6
 window-padding-y = 6
@@ -30,22 +30,22 @@ background-opacity = 0.97
 background-blur = true
 unfocused-split-opacity = 0.92
 
-# Nice on macOS
-macos-titlebar-style = transparent
-
 # ----------------------------
-# Cursor / input behavior
+# macOS
 # ----------------------------
-cursor-style = block
-cursor-style-blink = true
-mouse-hide-while-typing = true
-
 # Treat Option as Alt for shell/editor shortcuts (e.g. Alt-b/f/d in zsh).
 # Default for U.S. layouts (https://ghostty.org/docs/config/reference#macos-option-as-alt)
 macos-option-as-alt = true
 
 # ----------------------------
-# Shell integration / working dir inheritance
+# Cursor
+# ----------------------------
+cursor-style = block
+cursor-style-blink = true
+mouse-hide-while-typing = true
+
+# ----------------------------
+# Shell integration
 # ----------------------------
 shell-integration = detect
 window-inherit-working-directory = true
@@ -53,7 +53,7 @@ tab-inherit-working-directory = true
 split-inherit-working-directory = true
 
 # ----------------------------
-# Clipboard / selection / links
+# Clipboard
 # ----------------------------
 copy-on-select = clipboard
 link-url = true
@@ -67,19 +67,21 @@ link-previews = true
 scrollback-limit = 134217728
 
 # ----------------------------
-# Safety
-# ----------------------------
-confirm-close-surface = true
-
-# ----------------------------
 # Keybindings
 # ----------------------------
 
-# Prevent accidental quit/close
+# Confirm before closing any surface (tab, split, or window)
+confirm-close-surface = true
+
+# Disable default close actions to prevent accidental data loss
+# cmd+q default: quit
 keybind = cmd+q=ignore
+# cmd+w default: close surface
 keybind = cmd+w=ignore
+# cmd+alt+w default: close tab
 keybind = cmd+alt+w=ignore
 keybind = cmd+shift+w=close_surface
+# cmd+shift+alt+w default: close all windows
 keybind = cmd+shift+alt+w=ignore
 
 # Splits
@@ -95,7 +97,3 @@ keybind = ctrl+shift+l=goto_split:right
 # Scrolling
 keybind = ctrl+shift+u=scroll_page_up
 keybind = ctrl+shift+d=scroll_page_down
-
-# Quick terminal
-# keybind = global:cmd+backquote=toggle_quick_terminal
-# keybind = global:cmd+shift+space=toggle_quick_terminal
