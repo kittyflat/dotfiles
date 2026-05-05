@@ -20,6 +20,8 @@ return {
           CursorColumn = { bg = "#070070" },
           ColorColumn  = { bg = "#260030" },
           Whitespace   = { fg = "#c63f4f" },  -- trailing space indicator
+          IblIndent    = { fg = "#2e3347" },  -- very subtle indent guides
+          IblScope     = { fg = "#4d5566" },  -- slightly visible scope highlight
         },
       })
       vim.cmd("colorscheme ayu")
@@ -65,8 +67,8 @@ return {
     main = "ibl",
     event = "BufReadPost",
     opts = {
-      indent = { char = "│" },
-      scope = { enabled = false },
+      indent = { char = "│", highlight = "IblIndent" },
+      scope = { enabled = true, highlight = "IblScope" },
     },
   },
 
