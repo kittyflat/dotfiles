@@ -7,13 +7,6 @@ return {
     opts = {},
   },
 
-  -- Commenting (gc / gcc) — context-aware, handles JSX correctly
-  {
-    "numToStr/Comment.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
-
   -- Auto-close brackets, quotes, etc.
   {
     "windwp/nvim-autopairs",
@@ -44,6 +37,4 @@ return {
     opts = {},
   },
 
-  -- Language-specific
-  { "keith/rspec.vim" },
 }
