@@ -50,7 +50,7 @@ return {
       },
       tabline = {
         lualine_a = {},
-        lualine_b = { { "tabs", mode = 1, fmt = function(name, ctx) return ctx.tabnr .. " " .. name end } },
+        lualine_b = { { "tabs", mode = 1, tabs_color = { active = "lualine_a_normal", inactive = "lualine_b_normal" }, fmt = function(name, ctx) return ctx.tabnr .. " " .. name end } },
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
