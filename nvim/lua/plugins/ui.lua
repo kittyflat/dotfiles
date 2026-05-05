@@ -16,7 +16,7 @@ return {
           Comment      = { fg = "#527077" },
           Directory    = { fg = "#36A3D9" },
           Search       = { fg = "#f5deb3", bg = "#6e2c71" },
-          CursorLine   = { bg = "#0d1a5e" },  -- blue row highlight
+          CursorLine   = { bg = "#070070" },  -- blue row highlight
           Whitespace   = { fg = "#c63f4f" },  -- trailing space indicator
           IblIndent    = { fg = "#252b38" },  -- nearly invisible inactive guides
           IblScope     = { fg = "#4d5566" },  -- visible scope highlight
