@@ -34,11 +34,11 @@ return {
       options = { theme = "ayu_mirage", section_separators = "", component_separators = "" },
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { "readonly", { "filename", path = 1 }, "modified" },
+        lualine_b = { "branch", "readonly", { "filename", path = 1 }, "modified" },
         lualine_c = {},
         lualine_x = { "diagnostics", "filetype", "encoding" },
         lualine_y = { "progress" },
-        lualine_z = { "branch", "location" },
+        lualine_z = { "location" },
       },
       inactive_sections = {
         lualine_a = {},
