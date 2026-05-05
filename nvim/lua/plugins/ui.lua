@@ -16,12 +16,11 @@ return {
           Comment      = { fg = "#527077" },
           Directory    = { fg = "#36A3D9" },
           Search       = { fg = "#f5deb3", bg = "#6e2c71" },
-          CursorLine   = { bg = "#070070" },
-          CursorColumn = { bg = "#070070" },
-          ColorColumn  = { bg = "#260030" },
+          CursorLine   = { bg = "#252d3d" },  -- subtle row highlight
+          ColorColumn  = { bg = "#2a2535" },  -- barely visible 120-col reminder
           Whitespace   = { fg = "#c63f4f" },  -- trailing space indicator
-          IblIndent    = { fg = "#2e3347" },  -- very subtle indent guides
-          IblScope     = { fg = "#4d5566" },  -- slightly visible scope highlight
+          IblIndent    = { fg = "#252b38" },  -- nearly invisible inactive guides
+          IblScope     = { fg = "#4d5566" },  -- visible scope highlight
         },
       })
       vim.cmd("colorscheme ayu")
@@ -68,7 +67,7 @@ return {
     event = "BufReadPost",
     opts = {
       indent = { char = "│", highlight = "IblIndent" },
-      scope = { enabled = true, highlight = "IblScope" },
+      scope  = { enabled = true, highlight = "IblScope" },
     },
   },
 

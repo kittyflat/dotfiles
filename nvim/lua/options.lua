@@ -14,7 +14,6 @@ opt.scrolloff = 5
 opt.background = "dark"
 opt.termguicolors = true
 opt.cursorline = true
-opt.cursorcolumn = true
 opt.showmode = false  -- lualine shows mode
 opt.ruler = true
 opt.laststatus = 3    -- global statusline (neovim feature)
