@@ -49,7 +49,7 @@ return {
         lualine_z = { "location" },
       },
       tabline = {
-        lualine_a = { { "tabs", mode = 1, fmt = function(name, ctx) return ctx.tabnr .. " " .. name end } },
+        lualine_a = { { "tabs", mode = 1, max_length = function() return math.floor(vim.o.columns * 0.6) end,fmt = function(name, ctx) return ctx.tabnr .. " " .. name end } },
         lualine_b = {},
         lualine_c = {},
         lualine_x = { "filetype", "encoding" },
