@@ -61,8 +61,7 @@ opt.listchars = { trail = "·" }
 -- Folding (treesitter-based)
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.foldenable = true
-opt.foldlevelstart = 99  -- open all folds on file open
+opt.foldenable = false  -- use zM to enable folding, zR to open all
 
 -- Project-specific .nvim.lua
 opt.exrc = true
