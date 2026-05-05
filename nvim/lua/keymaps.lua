@@ -26,7 +26,7 @@ map("v", "<C-j>", ":m '>+1<CR>gv=gv", { noremap = true })
 map("v", "<C-k>", ":m '<-2<CR>gv=gv", { noremap = true })
 
 -- Clear search highlight and close floating windows
-map("n", "<ESC><ESC>", function()
+map("n", "<Esc>", function()
   vim.cmd("nohlsearch")
   for _, win in ipairs(vim.api.nvim_list_wins()) do
     if vim.api.nvim_win_get_config(win).relative ~= "" then
