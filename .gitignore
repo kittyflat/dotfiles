@@ -1,6 +1,2 @@
-.vim/plugged
-.vim/tmp
-.vim/.netrwhist
-.vim/undodir
 .DS_Store
 .claude/
