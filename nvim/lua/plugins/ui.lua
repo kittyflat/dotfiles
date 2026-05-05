@@ -36,7 +36,7 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "readonly", { "filename", path = 1 }, "modified" },
         lualine_c = {},
-        lualine_x = { "diagnostics", "filetype" },
+        lualine_x = { "diagnostics", "filetype", "encoding" },
         lualine_y = { "progress" },
         lualine_z = { "branch", "location" },
       },
