@@ -36,9 +36,9 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "readonly", { "filename", path = 1 }, "modified" },
         lualine_c = {},
-        lualine_x = {},
+        lualine_x = { "diagnostics" },
         lualine_y = { "progress" },
-        lualine_z = { "location" },
+        lualine_z = { "branch", "location" },
       },
       inactive_sections = {
         lualine_a = {},
@@ -49,12 +49,12 @@ return {
         lualine_z = { "location" },
       },
       tabline = {
-        lualine_a = { "tabs" },
+        lualine_a = { { "tabs", mode = 1 } },  -- mode=1: show filename
         lualine_b = {},
         lualine_c = {},
-        lualine_x = { "diagnostics", "filetype", "encoding", "fileformat" },
+        lualine_x = { "filetype", "encoding" },
         lualine_y = {},
-        lualine_z = { "branch" },
+        lualine_z = {},
       },
     },
   },

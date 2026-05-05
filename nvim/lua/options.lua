@@ -18,6 +18,7 @@ opt.cursorcolumn = true
 opt.showmode = false  -- lualine shows mode
 opt.ruler = true
 opt.laststatus = 3    -- global statusline (neovim feature)
+opt.showtabline = 1   -- show tabline only when 2+ tabs (matches classic vim)
 
 -- Search
 opt.hlsearch = true
