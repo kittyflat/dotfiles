@@ -8,7 +8,7 @@ link() {
 }
 
 echo "Installing Homebrew packages..."
-brew bundle --file="$DOTFILES/Brewfile"
+brew bundle --file="$DOTFILES/Brewfile" || echo "⚠️  Some packages failed to install. Check the output above."
 
 echo "Authenticating with GitHub..."
 gh auth login
