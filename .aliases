@@ -10,7 +10,7 @@ catppuccin() {
   local flavor="${1:-mocha}"
   sed -i '' "s/local flavour = .*/local flavour = \"$flavor\"/" ~/Projects/dotfiles/nvim/lua/plugins/ui.lua
   sed -i '' "s/theme = Catppuccin .*/theme = Catppuccin ${(C)flavor}/" ~/Projects/dotfiles/ghostty/config.ghostty
-  for socket in /tmp/nvim*/0; do
+  for socket in $(find "${TMPDIR}nvim.${USER}" -name "nvim.*.0" -type s 2>/dev/null); do
     nvim --server "$socket" --remote-send ":colorscheme catppuccin-$flavor<CR>" 2>/dev/null
   done
   echo "Switched to Catppuccin $flavor — reload Ghostty with Cmd+Shift+,"
