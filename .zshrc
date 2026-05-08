@@ -115,4 +115,6 @@ compdef _gt_yargs_completions gt
 # ============================================================
 # Prompt (last so nothing above overrides it)
 # ============================================================
-eval "$(starship init zsh)"
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+autoload -U promptinit; promptinit
+prompt pure
