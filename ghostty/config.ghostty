@@ -37,7 +37,7 @@ macos-titlebar-style = transparent
 # ----------------------------
 # Cursor / input behavior
 # ----------------------------
-cursor-style = block
+cursor-style = bar
 cursor-style-blink = true
 mouse-hide-while-typing = true
 
