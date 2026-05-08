@@ -31,7 +31,7 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
-      options = { theme = "ayu_mirage", section_separators = "", component_separators = "" },
+      options = { theme = "ayu_dark", section_separators = "", component_separators = "" },
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch", "readonly", { "filename", path = 1 }, "modified" },
@@ -50,7 +50,7 @@ return {
       },
       tabline = {
         lualine_a = {},
-        lualine_b = { { "tabs", mode = 1, max_length = function() return vim.o.columns end, tabs_color = { active = { fg = "#FFCC66" }, inactive = { fg = "#5C6773" } }, fmt = function(name, ctx) return ctx.tabnr .. " " .. name end } },
+        lualine_b = { { "tabs", mode = 1, max_length = function() return vim.o.columns end, tabs_color = { active = { fg = "#B3B1AD", gui = "bold" }, inactive = { fg = "#5C6773" } }, fmt = function(name, ctx) return ctx.tabnr .. " " .. name end } },
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
