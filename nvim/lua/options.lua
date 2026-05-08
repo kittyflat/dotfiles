@@ -56,7 +56,7 @@ end
 
 -- Trailing whitespace (native, styled via Whitespace highlight in ui.lua)
 opt.list = true
-opt.listchars = { trail = "·" }
+opt.listchars = { trail = "·", tab = "  " }
 
 -- Folding (treesitter-based)
 -- Folding (treesitter-based, built-in neovim 0.10+)

@@ -93,6 +93,10 @@ keybind = ctrl+shift+j=goto_split:down
 keybind = ctrl+shift+k=goto_split:up
 keybind = ctrl+shift+l=goto_split:right
 
+# Titles
+keybind = cmd+shift+t=prompt_tab_title
+keybind = cmd+shift+s=prompt_surface_title
+
 # Scrolling
 keybind = ctrl+shift+u=scroll_page_up
 keybind = ctrl+shift+d=scroll_page_down
