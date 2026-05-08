@@ -3,8 +3,7 @@
 	br = branch
 	ci = commit
 	st = status
+[init]
+	defaultBranch = main
 [include]
 	path = ~/.gitconfig.local
-[user]
-	name = Jason Su
-	email = 164670+kittyflat@users.noreply.github.com
