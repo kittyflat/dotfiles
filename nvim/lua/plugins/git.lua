@@ -1,5 +1,5 @@
 return {
-  -- Git signs in gutter + hunk actions (replaces vim-gitgutter)
+  -- Git signs in gutter + hunk actions
   {
     "lewis6991/gitsigns.nvim",
     opts = {

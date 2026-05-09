@@ -35,22 +35,6 @@ map("n", "<Esc>", function()
   end
 end, { silent = true })
 
--- File explorer
-map("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open file explorer" })
-
--- Telescope (defined here for discoverability; plugin lazy-loads on use)
-map("n", "<C-p>", "<CMD>Telescope find_files<CR>")
-map("n", "<C-f>", function()
-  local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
-  require("telescope.builtin").live_grep({ cwd = git_root })
-end)
-map("n", "<leader>f", "<CMD>Telescope live_grep<CR>")
-
--- Format (also set per-buffer on LspAttach in lsp.lua)
-map({ "n", "v" }, "<leader>p", function()
-  require("conform").format({ lsp_fallback = true })
-end)
-
 -- Commands
 vim.api.nvim_create_user_command("Prettier", function()
   require("conform").format({ formatters = { "prettier" } })

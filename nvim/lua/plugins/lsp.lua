@@ -59,7 +59,7 @@ return {
     end,
   },
 
-  -- Completion engine (replaces CoC completion)
+  -- Completion engine
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -104,9 +104,12 @@ return {
     end,
   },
 
-  -- Formatting (replaces coc-prettier / coc-eslint formatting)
+  -- Formatting
   {
     "stevearc/conform.nvim",
+    keys = {
+      { "<leader>p", function() require("conform").format({ lsp_fallback = true }) end, mode = { "n", "v" }, desc = "Format" },
+    },
     opts = {
       formatters_by_ft = {
         javascript      = { "prettier" },

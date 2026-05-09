@@ -1,5 +1,5 @@
 return {
-  -- Surround text objects (upgrade from vim-surround)
+  -- Surround text objects
   {
     "kylechui/nvim-surround",
     version = "*",
@@ -20,12 +20,16 @@ return {
   -- Text coercion and substitution (crs, crc, cru, etc.)
   { "tpope/vim-abolish" },
 
-  -- File explorer (replaces netrw / :E)
+  -- File explorer
   {
     "stevearc/oil.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = {
+      { "<leader>e", "<CMD>Oil<CR>", desc = "Open file explorer" },
+    },
     opts = {
       default_file_explorer = true,
+      view_options = { show_hidden = true },
     },
   },
 
