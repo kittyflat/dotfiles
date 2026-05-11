@@ -34,7 +34,7 @@ export HISTSIZE=1000
 export SAVEHIST=1000
 
 # fzf: search hidden files, exclude .git
-export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/**'"
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --no-ignore-vcs --exclude .git"
 
 # ============================================================
 # PATH
