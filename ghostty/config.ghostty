@@ -17,7 +17,7 @@ font-size = 12
 # ----------------------------
 # Colors
 # ----------------------------
-theme = Ayu
+theme = Catppuccin Mocha
 
 # ----------------------------
 # Window feel
@@ -26,10 +26,9 @@ window-padding-x = 6
 window-padding-y = 6
 window-padding-balance = true
 
-background-opacity = 0.97
+background-opacity = 0.95
 background-blur = true
-unfocused-split-opacity = 0.82
-split-divider-color = #0D2A3D
+unfocused-split-opacity = 0.50
 
 # Nice on macOS
 macos-titlebar-style = transparent
