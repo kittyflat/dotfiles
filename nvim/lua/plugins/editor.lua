@@ -30,6 +30,10 @@ return {
     opts = {
       default_file_explorer = true,
       view_options = { show_hidden = true },
+      keymaps = {
+        ["<C-l>"] = false,        -- Oil default was refresh; freed for split navigation, remapped to <C-r>
+        ["<C-r>"] = "actions.refresh",
+      },
     },
   },
 
