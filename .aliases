@@ -1,5 +1,5 @@
 alias v="nvim"
-alias vf='nvim $(fzf)'
+function vf { local f=$(fzf); [[ -n "$f" ]] && nvim "$f"; }
 alias g="git"
 alias gg="git grep"
 alias gd="git diff"
