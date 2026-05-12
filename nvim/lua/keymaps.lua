@@ -41,12 +41,4 @@ vim.api.nvim_create_user_command("Prettier", function()
 end, {})
 
 -- Abbreviations
-local abbrevs = {
-  { "E",    "Oil" },
-  { "Gb",   "Git blame" },
-  { "Gbl",  "Git blame" },
-  { "Gbla", "Git blame" },
-}
-for _, a in ipairs(abbrevs) do
-  vim.cmd(string.format("cnoreabbrev %s %s", a[1], a[2]))
-end
+vim.cmd("cnoreabbrev E Oil")
