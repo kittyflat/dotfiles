@@ -99,6 +99,9 @@ keybind = ctrl+shift+l=goto_split:right
 keybind = ctrl+shift+u=scroll_page_up
 keybind = ctrl+shift+d=scroll_page_down
 
+# ctrl-[ → ESC (Kitty protocol encodes it as CSI-u otherwise, breaking fzf)
+keybind = ctrl+[=esc:
+
 # Titles
 keybind = cmd+shift+t=prompt_tab_title
 keybind = cmd+shift+s=prompt_surface_title
