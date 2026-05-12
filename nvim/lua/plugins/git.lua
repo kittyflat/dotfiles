@@ -25,6 +25,4 @@ return {
     },
   },
 
-  -- Git commands (:Git blame, :Git diff, etc.)
-  { "tpope/vim-fugitive" },
 }
