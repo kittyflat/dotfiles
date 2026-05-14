@@ -3,6 +3,10 @@ DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
 link() {
   mkdir -p "$(dirname "$2")"
+  if [ -e "$2" ] && [ ! -L "$2" ]; then
+    mv "$2" "$2.bak"
+    echo "  backed up $2 -> $2.bak"
+  fi
   ln -snf "$1" "$2"
   echo "  $2 -> $1"
 }
