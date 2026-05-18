@@ -10,6 +10,7 @@ return {
       { "<C-p>",      "<CMD>Telescope find_files<CR>",                                                               desc = "Find files" },
       { "<C-f>",      "<CMD>Telescope grep_string<CR>",                                                              desc = "Find word under cursor" },
       { "<leader>ff", "<CMD>Telescope find_files<CR>",                                                               desc = "Find files" },
+      { "<leader>fa", function() require("telescope.builtin").find_files({ no_ignore = true, hidden = true }) end,     desc = "Find all files" },
       { "<leader>fg", "<CMD>Telescope live_grep<CR>",                                                                desc = "Live grep" },
       { "<leader>fw", "<CMD>Telescope grep_string<CR>",                                                              desc = "Find word under cursor" },
       { "<leader>fb", "<CMD>Telescope buffers<CR>",                                                                  desc = "Buffers" },
@@ -36,7 +37,7 @@ return {
         },
         pickers = {
           find_files = {
-            find_command = { "fd", "--type", "f", "--hidden", "--no-ignore-vcs", "--exclude", ".git", "--exclude", "node_modules" },
+            find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git" },
           },
           live_grep = {
             previewer = false,
