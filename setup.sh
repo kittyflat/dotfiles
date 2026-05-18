@@ -13,6 +13,8 @@ link() {
 
 echo "Installing Homebrew packages..."
 brew bundle --file="$DOTFILES/Brewfile" || echo "⚠️  Some packages failed to install. Check the output above."
+# To remove packages not in the Brewfile, run from this directory:
+#   brew bundle cleanup --file=Brewfile
 
 if ! gh auth status &>/dev/null; then
   echo "Authenticating with GitHub..."
@@ -24,6 +26,7 @@ echo "Symlinking dotfiles from $DOTFILES..."
 # Shell
 link "$DOTFILES/.zshrc"                            ~/.zshrc
 link "$DOTFILES/.aliases"                          ~/.aliases
+link "$DOTFILES/.tool-versions"                    ~/.tool-versions
 
 # Git
 link "$DOTFILES/.gitconfig"                        ~/.gitconfig
@@ -51,5 +54,8 @@ EOF
 else
   echo "  ~/.gitconfig.local already exists, skipping."
 fi
+
+echo "Installing mise tools..."
+mise install
 
 echo "Done."

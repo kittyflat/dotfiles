@@ -47,9 +47,8 @@ export PATH="$PATH:$HOME/.local/bin"
 # Tool setup
 # ============================================================
 
-# asdf
-export ASDF_DATA_DIR="$HOME/.asdf"
-export PATH="$ASDF_DATA_DIR/shims:$PATH"
+# mise
+eval "$(mise activate zsh)"
 
 # direnv
 eval "$(direnv hook zsh)"
