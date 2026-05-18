@@ -1,4 +1,5 @@
 alias v="nvim"
+alias vi="nvim"
 alias vim="nvim"
 function vf { local f=$(fzf); [[ -n "$f" ]] && nvim "$f"; }
 alias g="git"
