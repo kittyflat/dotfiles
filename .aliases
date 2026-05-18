@@ -7,6 +7,9 @@ alias gg="git grep"
 alias gd="git diff"
 alias gds="git diff --staged"
 alias gs="git status"
+alias gl="git log --oneline -10"
+alias gla="git log --oneline --all"
+alias glg="git log --oneline --graph --all"
 
 alias ct="catppuccin"
 
