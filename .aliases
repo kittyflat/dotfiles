@@ -30,3 +30,5 @@ _catppuccin_complete() {
 compdef _catppuccin_complete catppuccin ct
 
 [ -f ~/.aliases.local ] && source ~/.aliases.local
+
+# vim: set ft=zsh:
