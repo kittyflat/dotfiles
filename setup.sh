@@ -58,4 +58,4 @@ fi
 echo "Installing mise tools..."
 mise install
 
-echo "Done."
+echo "Done. Open a new terminal for mise tools to activate."
