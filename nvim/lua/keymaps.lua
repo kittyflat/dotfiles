@@ -4,6 +4,10 @@ local map = vim.keymap.set
 map({ "n", "v", "o" }, ";", ":", { noremap = true })
 map({ "n", "v", "o" }, ";;", ";", { noremap = true })
 
+-- Terminal mode
+map("t", "<C-x>", "<C-\\><C-n>",        { noremap = true, desc = "Exit terminal mode" })
+map("t", "<C-h>", "<C-\\><C-n><C-w>h",  { noremap = true, desc = "Exit terminal and go left" })
+
 -- Split navigation
 map("n", "<C-h>", "<C-w>h", { noremap = true })
 map("n", "<C-j>", "<C-w>j", { noremap = true })
