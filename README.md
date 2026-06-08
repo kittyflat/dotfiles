@@ -7,7 +7,7 @@
 ## Setup
 
 ```sh
-git clone git@github.com:kittyflat/dotfiles.git
+git clone https://github.com/kittyflat/dotfiles.git
 cd dotfiles && ./setup.sh
 ```
 
