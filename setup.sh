@@ -31,6 +31,9 @@ link "$DOTFILES/.tool-versions"                    ~/.tool-versions
 # Git
 link "$DOTFILES/.gitconfig"                        ~/.gitconfig
 
+# ~/bin scripts
+link "$DOTFILES/bin/aws-mfa"                       ~/bin/aws-mfa
+
 # Tools
 link "$DOTFILES/nvim"                              ~/.config/nvim
 link "$DOTFILES/ghostty/config.ghostty"            ~/.config/ghostty/config.ghostty

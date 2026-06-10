@@ -41,6 +41,7 @@ export FZF_DEFAULT_COMMAND="fd --type f --hidden --no-ignore-vcs --exclude .git"
 # ============================================================
 
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 
 # ============================================================

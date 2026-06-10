@@ -1,0 +1,33 @@
+#!/bin/bash
+# Wrapper around aws-mfa that auto-fills the TOTP code from 1Password.
+#
+# Requires:
+#   - 1Password CLI (op) installed: brew install 1password-cli
+#   - Biometric unlock enabled: 1Password desktop > Settings > Developer >
+#     "Integrate with 1Password CLI" (allows Touch ID instead of vault password)
+#   - Signed in to op: op signin
+#   - OP_AWS_MFA_ITEM set to the name of your AWS item in 1Password.
+#     Find the name with: op item list | grep -i aws
+#     Then add to ~/.zshrc.local (PATH is already set in .zshrc):
+#       # 1Password item name for aws-mfa TOTP auto-fill (op item list | grep -i aws)
+#       export OP_AWS_MFA_ITEM="your item name here"
+#
+# If op is unavailable or OP_AWS_MFA_ITEM is unset, falls back to running
+# aws-mfa normally (it will prompt for the TOTP interactively as usual).
+
+REAL_AWS_MFA="$HOME/.local/bin/aws-mfa"
+
+# If the real binary doesn't exist on this machine, do nothing.
+[ -x "$REAL_AWS_MFA" ] || exit 0
+
+# If we have a 1Password item name configured, try to fetch the OTP silently.
+if [ -n "$OP_AWS_MFA_ITEM" ]; then
+  OTP=$(op item get "$OP_AWS_MFA_ITEM" --otp 2>/dev/null)
+fi
+
+# If we got an OTP, pipe it in; otherwise let aws-mfa prompt interactively.
+if [ -n "$OTP" ]; then
+  echo "$OTP" | "$REAL_AWS_MFA" "$@"
+else
+  "$REAL_AWS_MFA" "$@"
+fi
