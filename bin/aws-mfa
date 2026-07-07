@@ -5,7 +5,6 @@
 #   - 1Password CLI (op) installed: brew install 1password-cli
 #   - Biometric unlock enabled: 1Password desktop > Settings > Developer >
 #     "Integrate with 1Password CLI" (allows Touch ID instead of vault password)
-#   - Signed in to op: op signin
 #   - OP_AWS_MFA_ITEM set to the name of your AWS item in 1Password.
 #     Find the name with: op item list | grep -i aws
 #     Then add to ~/.zshrc.local (PATH is already set in .zshrc):
@@ -23,6 +22,21 @@ REAL_AWS_MFA="$HOME/.local/bin/aws-mfa"
 # If we have a 1Password item name configured, try to fetch the OTP silently.
 if [ -n "$OP_AWS_MFA_ITEM" ]; then
   OTP=$(op item get "$OP_AWS_MFA_ITEM" --otp 2>/dev/null)
+
+  # If that failed, the 1Password desktop app is likely locked. Open it so the user
+  # can unlock with Touch ID, then retry.
+  if [ -z "$OTP" ]; then
+    echo "aws-mfa: 1Password is locked. Unlock it with Touch ID in the desktop app, then press Enter..." >&2
+    open -a "1Password"
+    read -r _
+    OTP=$(op item get "$OP_AWS_MFA_ITEM" --otp 2>/dev/null)
+  fi
+
+  if [ -z "$OTP" ]; then
+    echo "aws-mfa: could not get OTP from 1Password (item: $OP_AWS_MFA_ITEM)." >&2
+    echo "aws-mfa: to fix, run: eval \$(op signin)" >&2
+    echo "aws-mfa: falling back to interactive MFA prompt." >&2
+  fi
 fi
 
 # If we got an OTP, pipe it in; otherwise let aws-mfa prompt interactively.
