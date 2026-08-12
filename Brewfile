@@ -37,5 +37,4 @@ brew "heroku/brew/heroku"
 brew "stripe/stripe-cli/stripe"
 
 # Apps
-cask "1password-cli"
 cask "ghostty"
