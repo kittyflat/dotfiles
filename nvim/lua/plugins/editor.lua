@@ -31,6 +31,7 @@ return {
       default_file_explorer = true,
       view_options = { show_hidden = true },
       keymaps = {
+        ["<C-h>"] = false,        -- Oil default was open horizontal split; freed for split navigation
         ["<C-l>"] = false,        -- Oil default was refresh; freed for split navigation, remapped to <C-r>
         ["<C-r>"] = "actions.refresh",
       },
