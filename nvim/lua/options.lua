@@ -25,7 +25,7 @@ opt.smartcase = true
 opt.incsearch = true
 
 -- Behavior
-opt.mouse = ""
+opt.mouse = "a"
 opt.timeoutlen = 500
 opt.clipboard = "unnamed"
 opt.history = 1000
