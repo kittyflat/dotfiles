@@ -30,8 +30,14 @@ export PAGER=less
 export CLICOLOR=1
 
 export HISTFILE=~/.histfile
-export HISTSIZE=1000
-export SAVEHIST=1000
+export HISTSIZE=100000
+export SAVEHIST=100000
+
+# Share history live across all shells/panes instead of only on exit
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
 
 # fzf: search hidden files, exclude .git
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --no-ignore-vcs --exclude .git"

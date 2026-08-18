@@ -1,3 +1,8 @@
+# Use instead of `source ~/.zshrc` — Ghostty's shell integration (and
+# frameworks like Oh My Zsh/Prezto) break when .zshrc is re-sourced into a
+# live shell; `exec zsh` replaces the process and re-runs startup cleanly.
+alias reload="exec zsh"
+
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
